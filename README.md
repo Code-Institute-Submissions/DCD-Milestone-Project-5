@@ -22,11 +22,31 @@ The minimum viable product for this project involves: A homepage for a recipe si
 
 ### Structure
 
-[talk about the templating here, along with how the HTML will interact with the data passed to it, also the CSS and JavaScript hooks]
+The site will make use of templates, as is appropriate for a flask app, in order to ensure common elements accross pages do not need to be recreated multiple times, nor edited repeatedly for a single change. This will be further extended to include flask for loops to ease construction of elements of a page, such as the individual recipes being displayed during a search.
+
+The database is a document-based system, as this is what MongoDB provides, along with making the most sense for the chosen content, as each recipe would be stored as what amounts to a document anyway.
 
 ### Skeleton
 
-[Wireframes and database design go here]
+#### Home Page
+
+![Homepage Wireframe](design/wireframes/homepage.png)
+
+##### Recipe List Page
+
+![Recipe List Wireframe](design/wireframes/listpage.png)
+
+#### Recipe Create/Edit Page
+
+![Recipe Create/Edit Page Wireframe](design/wireframes/createrecipe.png)
+
+#### Recipe Page
+
+![Recipe Page Wireframe](design/wireframes/recipemain.png)
+
+#### Database Diagram
+
+![Database Diagram](design/diagrams/recipediagram.png)
 
 ### Surface
 
