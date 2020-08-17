@@ -60,6 +60,29 @@ This clean and readable design should extend to the general design of the elemen
 
 #### User Stories & Breakdown Thereof
 
+ - As a User, I want to be able to view a recipe and follow it to recreate the dish:
+    - Find a select a recipe
+    - Be taken to the recipe's page
+    - Be able to see the ingredients needed for the recipe
+    - Be able to easily read the methodology for the dish
+
+ - As a User, I want to be able to search for a specific recipe on the site:
+    - Be able to sort recipes by category
+    - Be able to search for a recipe by a term or word
+        - Be able to search in dish name or ingredients
+
+ - As a User, I want to be able to add my own recipes to the site:
+    - Click a button to be taken to a recipe creation page
+    - Have clear and readable fields to enter the appropriate information
+    - Be taken to the created recipe page after submitting the data
+
+ - As a User, I want to be able to edit or delete existing recipes:
+    - Click on a button on a recipe's page to be taken to an edit page
+        - Essentially the recipe addition page, but with information already filled
+            - (Would need to reference the recipe ID in the page somehow to ensure the edit works)
+        - Altering information on this page and submitting should alter the information in the database.
+    - Click on a delete button on a recipe's page to remove it entirely.
+        - A conformation message should be used to prevent accidental deletions.
 
 ## Features
 
