@@ -50,7 +50,13 @@ The database is a document-based system, as this is what MongoDB provides, along
 
 ### Surface
 
-[colour palette and design considerations (eg, templates, design methodology) goes here]
+The colour palette for this project needs to be both clean and immediately readable, so contrasting colours will need to be utilised, but the colourscheme should be cohesive so as to not draw attention away from important regions of the page.
+
+as such, this palette was chosen:
+
+![Colour Palette](design/dcd_palette.png)
+
+This clean and readable design should extend to the general design of the elements of the page.
 
 #### User Stories & Breakdown Thereof
 
