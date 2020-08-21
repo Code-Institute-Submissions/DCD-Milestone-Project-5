@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    {% for recipe in recipes %}
+        {{recipe.category}}
+        {{recipe.recipe_name}}
+        {{recipe.user}}
+        {{recipe.cooking_time}}
+        {{recipe.prep_time}}
+        {{recipe.servings}}
+        {{recipe.ingredients}}
+        {{recipe.method}}
+        {{recipe.special_equipment}}
+        {{recipe.recipeID}}
+    {% endfor %}
+{% endblock %}
