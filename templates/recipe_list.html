@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content%}
+
+    {% for recipe in recipies %}
+    <div class="recipe-object col-2"> {% recipe.recipe_name %} </div>
+    {% endfor %}
+
+{% endblock %}

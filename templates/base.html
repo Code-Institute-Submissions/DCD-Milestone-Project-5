@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Book</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<body class="container-fluid">
+    <!--Navbar-->
+    <nav class="row">
+        <a href="">Logo [PH]</a> 
+        <div>
+            <ul>
+                <li>List Item 1 [PH]</li>
+                <li>List Item 2 [PH]</li>
+                <li>List Item 3 [PH]</li>
+            </ul>
+        </div> 
+    </nav>
     <!--Block for page content-->
-    {% block content %}
-    {% endblock %}
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!--Scripts-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
 </body>
 </html>

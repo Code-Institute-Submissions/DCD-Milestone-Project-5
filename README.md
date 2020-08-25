@@ -101,6 +101,7 @@ This clean and readable design should extend to the general design of the elemen
 
 ## Deployment
 
+- Had to set up heroku environment variables to login
 
 ## Credits
 
