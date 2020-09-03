@@ -16,12 +16,20 @@ app.config["MONGO_URI"] = 'mongodb+srv://{}:{}@recipeclusteralpha.k8y4a.mongodb.
 # pyMongo Constructor
 mongo = PyMongo(app)
 
-# app routes
 
+# app routes
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("home.html", recipes=mongo.db.recipes.find())
+    return render_template("home.html", recipes_popular=mongo.db.recipes.find(), recipes_new=mongo.db.recipes.find())
+
+@app.route('/recipes')
+def recipe_search():
+    return render_template("recipe_list.html", recipes=mongo.db.recipes.find())
+
+@app.route('/recipes/<ID>')
+def recipe_page(ID):
+    return render_template("recipe_page.html", )
 
 
 if __name__ == '__main__':
