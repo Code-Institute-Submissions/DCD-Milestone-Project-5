@@ -2,11 +2,18 @@
 
 /*Text Colour & Font*/
 nav{
-    background-color:magenta;
+    background-color:magenta;/*test value, needs to change*/
 }
 
+.navbar-item:hover{
+    background-color:#000;/*test value, needs to change*/
+}
 
 /*Common*/
+.navbar{
+    padding: 1rem;
+}
+
 .navbar-list{
     padding:0;
     margin:0;
@@ -16,7 +23,8 @@ nav{
     list-style-type:none;
     vertical-align: middle;
     text-align: center;
-    width:33%
+    width:33%;
+    height:100%;
 }
 
 /*Home page*/
