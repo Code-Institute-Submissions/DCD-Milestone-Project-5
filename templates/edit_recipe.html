@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<form action="{{url_for('insert_recipe')}}" method="POST">
-    <input name="recipe_name" type="text">
-    <select name="category">
-        <option value="TestOption1" selected>test option 1</option>
-        <option value="TestOption2">test option 2</option>
-        <option value="TestOption3">test option 3</option>
-        <option value="TestOption4">test option 4</option>
-        <option value="TestOption5">test option 5</option>
-    </select>
-    <input name="servings" type="text">
-    <input name="prep_time" type="number">
-    <input name="cook_time" type="number">
-    <input name="ingred_list" type="text">
-    <input name="tools_needed" type="text">
-    <textarea name="method"></textarea>
-    <input type="submit" value="Submit">
-</form>
-
-
+    {% if recipe == 0 %}
+    <form action="{{url_for('insert_recipe')}}" method="POST">
+        <input name="recipe_name" type="text">
+        <select name="category">
+            <option value="TestOption1" selected>test option 1</option>
+            <option value="TestOption2">test option 2</option>
+            <option value="TestOption3">test option 3</option>
+            <option value="TestOption4">test option 4</option>
+            <option value="TestOption5">test option 5</option>
+        </select>
+        <input name="servings" type="text">
+        <input name="prep_time" type="number">
+        <input name="cook_time" type="number">
+        <input name="ingred_list" type="text">
+        <input name="tools_needed" type="text">
+        <textarea name="method"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+    {% endif %}
 {% endblock %}

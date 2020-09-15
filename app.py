@@ -34,12 +34,15 @@ def recipe_page(ID):
     return render_template("recipe_page.html")
 
 
-@app.route('/edit_recipe')
-def edit_recipe():
-    return render_template("edit_recipe.html")
+@app.route('/edit_recipe/<ID>')
+def edit_recipe(ID):
+    if(ID == "new"):
+        return render_template("edit_recipe.html", recipe=0)  # this is called when attempting to create a new recipe
+    else:
+        return render_template("edit_recipe.html", recipe=mongo.db.recipes.find({"_id": ID}))  # this is called when editing an existing one, should work in theory.
 
 
-@app.route('/insert_recipe', methods=["GET", "POST"])
+@app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
