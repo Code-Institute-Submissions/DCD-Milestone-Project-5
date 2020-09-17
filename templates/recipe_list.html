@@ -2,7 +2,7 @@
 {% block content%}
 
     {% for recipe in recipes %}
-    <div class="recipe-object col-2"> {{ recipe.recipe_name }} </div>
+    <div class="recipe-object col-2"><a href="{{ url_for('recipe_page', ID=recipe._id) }}">{{ recipe.recipe_name }}</a> </div>
     {% endfor %}
 
 {% endblock %}
