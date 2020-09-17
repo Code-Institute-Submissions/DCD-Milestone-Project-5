@@ -38,3 +38,14 @@ nav{
 .home-search-recipe-link{
     text-align:center;
 }
+
+/*Edit Recipe Page*/
+#preparationTime, #cookingTime{
+    max-width: 4rem;
+}
+
+.minuteLabel{
+    max-width:50%;
+    margin:0;
+    padding:0;
+}

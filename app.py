@@ -50,12 +50,12 @@ def insert_recipe(ID):
     else:
         recipes = mongo.db.recipes
         recipes.update_one({"_id": ObjectId(ID)}, {"$set": request.form.to_dict()})
-    return redirect(url_for('recipe_page', ID))
+    return redirect(url_for('recipe_search'))
 
 
 @app.route('/delete_recipe/<ID>')
 def delete_recipe(ID):
-    mongo.db.recipes.delete_onee({"_id": ObjectId(ID)})
+    mongo.db.recipes.delete_one({"_id": ObjectId(ID)})
     return redirect(url_for('recipe_search'))
 
 

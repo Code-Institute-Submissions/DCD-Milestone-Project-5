@@ -1,55 +1,69 @@
 {% extends 'base.html' %}
 {% block content%}
 
-    {% if recipe == 0 %} <!--Could condense this Jinja code down to one line now that i've seen that select thing.-->
+    {% if target_recipe == 0 %} <!--This isn't evaluating to true when creating a new entry, why?-->
     <form action="{{ url_for('insert_recipe', ID='new') }}" method="POST">
     {% else %}
     <form action="{{ url_for('insert_recipe', ID=target_recipe._id) }}" method="POST">
     {% endif %}
 
         <div class="row">
-            <label for="recipeName" class="col"> New Recipe Name: </label><!--I need clearer IDs, brevity be damned.-->
-            <input id="recipeName" class="col" name="recipe_name" type="text" value="{{ target_recipe.recipe_name }}" required>
+            <div class="col">
+            <label for="recipeName" > New Recipe Name: </label><!--I need clearer IDs, brevity be damned.-->
+            <input id="recipeName" name="recipe_name" type="text" value="{{ target_recipe.recipe_name }}" required>
+            </div>
         </div>
 
         <div class="row">
-            <label for="categorySelect"> Category: </label>
-            <select id="categorySelect" class="col" name="category">
+            <div class="col-2">
+            <label class="catLabel" for="categorySelect"> Category: </label>
+            <select id="categorySelect" name="category">
                 <option value="TestOption1" {% if target_recipe.category == "TestOption1" %} selected {% endif %} >test option 1</option>
                 <option value="TestOption2" {% if target_recipe.category == "TestOption2" %} selected {% endif %} >test option 2</option>
                 <option value="TestOption3" {% if target_recipe.category == "TestOption3" %} selected {% endif %} >test option 3</option>
                 <option value="TestOption4" {% if target_recipe.category == "TestOption4" %} selected {% endif %} >test option 4</option>
                 <option value="TestOption5" {% if target_recipe.category == "TestOption5" %} selected {% endif %} >test option 5</option>
             </select>
-
+            </div>
+            <div class="col-2">
             <label for="servings"> Servings: </label>
-            <input id="servings" class="col" name="servings" type="text" value="{{ target_recipe.servings }}">
-
+            <input id="servings" name="servings" type="text" value="{{ target_recipe.servings }}">
+            </div>
+            <div class="col-4">
             <label for="preperationTime"> Preperation Time: </label>
-            <input id="preparationTime" class="col" name="prep_time" type="number" value="{{ target_recipe.prep_time }}">
-            <span> Minutes </span>
-
+            <input id="preparationTime" name="prep_time" type="number" value="{{ target_recipe.prep_time }}">
+            <span class="minuteLabel"> Minutes </span>
+            </div>
+            <div class="col-4">
             <label for="cookingTime"> Cooking Time: </label>
-            <input id="cookingTime" class="col" name="cook_time" type="number" value="{{ target_recipe.cook_time }}">
-            <span> Minutes </span>
+            <input id="cookingTime" name="cook_time" type="number" value="{{ target_recipe.cook_time }}">
+            <span class="minuteLabel"> Minutes </span>
+            </div>
         </div>
 
         <div class="row">
+            <div class="col">
             <label for="ingredientsList">Ingredients</label>
-            <input id="ingredientsList" class="col" name="ingred_list" type="text" value="{{ target_recipe.ingred_list }}" required><!--change to an add additional kind of situation, so a nested document, or could be a text area.-->
+            <input id="ingredientsList" name="ingred_list" type="text" value="{{ target_recipe.ingred_list }}" required><!--change to an add additional kind of situation, so a nested document, or could be a text area.-->
+            </div>
         </div>
 
         <div class="row">
+            <div class="col">
             <label for="toolsNeeded">Special Kitchenware Needed: </label>
-            <input id="toolsNeeded" class="col" name="tools_needed" type="text" value="{{ target_recipe.tools_needed }}">
-
+            <input id="toolsNeeded" name="tools_needed" type="text" value="{{ target_recipe.tools_needed }}">
+            </div>
+            <div class="col">
             <label for="imageEntry">Url for Image: </label>
-            <input id="imageEntry" class="col" name="image_link" type="text" value="{{ target_recipe.image_link }}">
+            <input id="imageEntry" name="image_link" type="text" value="{{ target_recipe.image_link }}">
+            </div>
         </div>
 
         <div class="row">
+            <div class="col">
             <label for="cooking Method">Cooking Method: </label>
             <textarea id="cookingMethod" class="col" name="method" required>{{ target_recipe.method }}</textarea>
+            </div>
         </div>
 
         <input type="submit" value="Submit">
