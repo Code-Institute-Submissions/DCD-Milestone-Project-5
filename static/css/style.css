@@ -20,11 +20,11 @@ font-family: 'Mukta', sans-serif;
     text-decoration: none;
 }
 
-.nav-logo, .navbar-item a, .title-splash{
+.nav-logo, .navbar-item a, .title-splash, .recipe-thumbnail-object{
     color:#f0f8fa;
 }
 
-.navbar-item a:hover, .nav-logo:hover{
+.navbar-item a:hover, .nav-logo:hover, .recipe-thumbnail-object:hover{
     color:#d3d6d6;
     text-decoration: none;
 }
@@ -54,6 +54,22 @@ font-family: 'Mukta', sans-serif;
     vertical-align: middle;
 }
 
+.recipe-thumbnail-object{
+    width: 17rem;
+    margin:1rem 1.5rem;
+    height:10rem;
+}
+
+.thumbnail-background{
+    height:100%;
+    width:100%;
+}
+
+.thumbnail-title{
+    text-align: center;
+    bottom: -7rem;
+    position: relative;
+}
 
 /*Home page*/
 .title-splash{
