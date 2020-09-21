@@ -9,39 +9,43 @@ font-family: 'Mukta', sans-serif;
 
 /*Text Colour & Font*/
 .navbar{
-    background-color:#44a0b4;
-    color:#2e282a;
     text-decoration: none;
 }
 
-.navbar-list{
-    background:#f0f8fa;
-}
-
-.navbar-item:hover{
-    text-decoration: none;
-}
-
-.navbar-item a, .nav_logo{
-    text-decoration: none;
-    color:#2e282a;
+.nav-logo, .navbar-item a, .title{
     font-family:'Kufam', cursive;
 }
 
-.navbar-item a:hover, .nav_logo:hover{
+.navbar-item:hover, .navbar-item a, .nav-logo{
+    text-decoration: none;
+}
+
+.nav-logo, .navbar-item a, .title-splash{
+    color:#f0f8fa;
+}
+
+.navbar-item a:hover, .nav-logo:hover{
     color:#d3d6d6;
     text-decoration: none;
 }
 
 /*Common*/
 
+.title{
+    text-align: center;
+}
+
 .navbar{
     height:50px;
+    background:linear-gradient(#3891A6, #257283);
 }
+
 .navbar-list{
     margin:0;
     padding:0;
     width:40%;
+    background: #4d8a97;
+    border: 1px, solid, #257283;
 }
 
 .navbar-item{
@@ -50,6 +54,7 @@ font-family: 'Mukta', sans-serif;
     vertical-align: middle;
 }
 
+
 /*Home page*/
 .title-splash{
     height:60vh;
@@ -57,10 +62,14 @@ font-family: 'Mukta', sans-serif;
     margin-left:-15px;
     margin-right:-15px;
     padding:0;
-    background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.2), url(../images/baguetteStack.jpg))
+    background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.2)), url(../images/baguetteStack.jpg);
+    background-position:center;
+    background-size:auto;
 }
 
-
+.title-splash .title{
+    text-align:center;
+}
 
 /*Edit Recipe Page*/
 #preparationTime, #cookingTime{
