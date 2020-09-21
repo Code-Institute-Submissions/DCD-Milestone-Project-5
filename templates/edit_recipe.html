@@ -16,13 +16,14 @@
 
         <div class="row">
             <div class="col-2">
-            <label class="catLabel" for="categorySelect"> Category: </label>
+            <label class="cat-label" for="categorySelect"> Category: </label>
             <select id="categorySelect" name="category">
-                <option value="TestOption1" {% if target_recipe.category == "TestOption1" %} selected {% endif %} >test option 1</option>
-                <option value="TestOption2" {% if target_recipe.category == "TestOption2" %} selected {% endif %} >test option 2</option>
-                <option value="TestOption3" {% if target_recipe.category == "TestOption3" %} selected {% endif %} >test option 3</option>
-                <option value="TestOption4" {% if target_recipe.category == "TestOption4" %} selected {% endif %} >test option 4</option>
-                <option value="TestOption5" {% if target_recipe.category == "TestOption5" %} selected {% endif %} >test option 5</option>
+                <option value="Breakfast" {% if target_recipe.category == "Breakfast" %} selected {% endif %} >Breakfast</option>
+                <option value="Lunch" {% if target_recipe.category == "Lunch" %} selected {% endif %} >Lunch</option>
+                <option value="Dinner" {% if target_recipe.category == "Dinner" %} selected {% endif %} >Dinner</option>
+                <option value="Dessert" {% if target_recipe.category == "Dessert" %} selected {% endif %} >Dessert</option>
+                <option value="Snack" {% if target_recipe.category == "Snack" %} selected {% endif %} >Snack</option>
+                <option value="Side" {% if target_recipe.category == "Side" %} selected {% endif %} >Side</option>
             </select>
             </div>
             <div class="col-2">
@@ -32,12 +33,12 @@
             <div class="col-4">
             <label for="preperationTime"> Preperation Time: </label>
             <input id="preparationTime" name="prep_time" type="number" value="{{ target_recipe.prep_time }}">
-            <span class="minuteLabel"> Minutes </span>
+            <span class="minute-label"> Minutes </span>
             </div>
             <div class="col-4">
             <label for="cookingTime"> Cooking Time: </label>
             <input id="cookingTime" name="cook_time" type="number" value="{{ target_recipe.cook_time }}">
-            <span class="minuteLabel"> Minutes </span>
+            <span class="minute-label"> Minutes </span>
             </div>
         </div>
 

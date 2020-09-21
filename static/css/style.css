@@ -63,11 +63,12 @@ font-family: 'Mukta', sans-serif;
     width: 17rem;
     margin:1rem 1.5rem;
     height:10rem;
+    display:inline-flex;
 }
 
 .thumbnail-background{
-    height:100%;
-    width:100%;
+    height:inherit;
+    width:inherit;
 }
 
 .thumbnail-title{
@@ -95,6 +96,11 @@ font-family: 'Mukta', sans-serif;
 
 .recipe-display-row{
     margin:30px 0px;
+}
+/*Recipe List*/
+
+.recipe-page-div{
+    display:flex;
 }
 
 /*Edit Recipe Page*/
