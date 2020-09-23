@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
 
-    {% if target_recipe == 0 %} <!--This isn't evaluating to true when creating a new entry, why?-->
+    {% if target_recipe == 0 %}
     <form action="{{ url_for('insert_recipe', ID='new') }}" method="POST">
     {% else %}
     <form action="{{ url_for('insert_recipe', ID=target_recipe._id) }}" method="POST">
@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="col">
-            <label for="recipeName" > New Recipe Name: </label><!--I need clearer IDs, brevity be damned.-->
+            <label for="recipeName" > New Recipe Name: </label>
             <input id="recipeName" name="recipe_name" type="text" value="{{ target_recipe.recipe_name }}" required>
             </div>
         </div>
