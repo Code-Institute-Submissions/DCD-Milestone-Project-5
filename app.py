@@ -39,9 +39,10 @@ def recipe_search(category):
 
 @app.route('/recipes')
 def name_search():
-    formattedName = '/{}/i'.format(request.form.get('search'))  # why is this empty?
-    print(formattedName)
-    results = mongo.db.recipes.find({'recipe_name': {'$regex': formattedName}})
+    searchString = format(request.args.get('search'))
+    results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
+    print(searchString)
+    print(results)
     return render_template('recipe_search.html', recipes=results)
 
 
