@@ -21,42 +21,64 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("home.html", recipes_popular=mongo.db.recipes.find(), recipes_new=mongo.db.recipes.find())
+    popResults = mongo.db.recipes.find()
+    newResults = mongo.db.recipes.find()
+    return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
+
+
+@app.route('/recipes/<category>')
+def recipe_search(category):
+    if(category == 'All'):
+        searchResults = mongo.db.recipes.find()
+        return render_template('recipe_search.html', recipes=searchResults)
+
+    else:
+        searchResults = mongo.db.recipes.find({'category': category})
+        return render_template('recipe_search.html', recipes=searchResults)
 
 
 @app.route('/recipes')
-def recipe_search():
-    return render_template("recipe_list.html", recipes=mongo.db.recipes.find())
+def name_search():
+    formattedName = '/{}/i'.format(request.form.get('search'))  # why is this empty?
+    print(formattedName)
+    results = mongo.db.recipes.find({'recipe_name': {'$regex': formattedName}})
+    return render_template('recipe_search.html', recipes=results)
 
 
 @app.route('/recipes/<ID>')
 def recipe_page(ID):
-    return render_template("recipe_page.html", recipe=mongo.db.recipes.find_one({"_id": ObjectId(ID)}))
+    targetRecipe = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
+    return render_template('recipe_page.html', recipe=targetRecipe)
 
 
 @app.route('/edit_recipe/<ID>')
 def edit_recipe(ID):
-    if(ID == "new"):
-        return render_template("edit_recipe.html", target_recipe=0)  # this is called when attempting to create a new recipe
-    else:
-        return render_template("edit_recipe.html", target_recipe=mongo.db.recipes.find_one({"_id": ObjectId(ID)}))  # this is called when editing an existing one
+    if(ID == 'new'):  # this is called when attempting to create a new recipe
+        return render_template('edit_recipe.html', target_recipe=0)
+
+    else:  # this is called when editing an existing one
+        target = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
+        return render_template('edit_recipe.html', target_recipe=target)
 
 
 @app.route('/insert_recipe/<ID>', methods=["POST"])
 def insert_recipe(ID):
-    if(ID == "new"):
+    if(ID == 'new'):
         recipes = mongo.db.recipes
         recipes.insert_one(request.form.to_dict())
+
     else:
         recipes = mongo.db.recipes
-        recipes.update_one({"_id": ObjectId(ID)}, {"$set": request.form.to_dict()})
-    return redirect(url_for('recipe_search'))
+        setDict = request.form.to_dict()
+        recipes.update_one({'_id': ObjectId(ID)}, {'$set': setDict})
+
+    return redirect(url_for('recipe_page', ID))
 
 
 @app.route('/delete_recipe/<ID>')
 def delete_recipe(ID):
-    mongo.db.recipes.delete_one({"_id": ObjectId(ID)})
-    return redirect(url_for('recipe_search'))
+    mongo.db.recipes.delete_one({'_id': ObjectId(ID)})
+    return redirect(url_for('recipe_search', category='All'))
 
 
 if __name__ == '__main__':

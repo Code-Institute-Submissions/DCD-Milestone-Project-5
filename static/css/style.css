@@ -8,6 +8,14 @@ font-family: 'Mukta', sans-serif;
 */
 
 /*Text Colour & Font*/
+
+/* setting <body> here purely to get rid of the stark white and black colours */
+body{
+    background-color: #f0f8fa;
+    color: #2e282a;
+    padding:0!important;
+}
+
 .navbar{
     text-decoration: none;
 }
@@ -16,7 +24,7 @@ font-family: 'Mukta', sans-serif;
     font-family:'Kufam', cursive;
 }
 
-.navbar-item:hover, .navbar-item a, .nav-logo{
+.navbar-item:hover, .navbar-item a, .nav-logo, .search-by-category a:hover{
     text-decoration: none;
 }
 
@@ -28,6 +36,10 @@ font-family: 'Mukta', sans-serif;
     color:#d3d6d6;
     text-decoration: none;
 }
+
+.recipe-search-controls{
+    font-family: 'Mukta', sans-serif;
+} 
 
 /*Common*/
 
@@ -97,10 +109,21 @@ font-family: 'Mukta', sans-serif;
 .recipe-display-row{
     margin:30px 0px;
 }
-/*Recipe List*/
 
-.recipe-page-div{
+/*Recipe Search*/
+.recipe-search-results{
     display:flex;
+}
+
+.recipe-search-controls{
+    display: flex;
+    float: left;
+    flex-direction: column;
+}
+
+.search-by-category a div{
+    padding: 10px;
+    border: 1px solid #7d82B8;
 }
 
 /*Edit Recipe Page*/

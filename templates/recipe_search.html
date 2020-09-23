@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content%}
+    
+    <div class="recipe-search-controls">
+    <form action="{{url_for('name_search')}}" method="GET">
+        <input id="search" type="text" placeholder="Search by recipe name" name="search" required>
+        <button type="submit"><i><i class="fas fa-search"></i></i></button>
+    </form>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='All')}}"><div>All Recipes</div></a></div>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Breakfast')}}"><div>Breakfast</div></a></div>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Lunch')}}"><div>Lunch</div></a></div>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Dinner')}}"><div>Dinner</div></a></div>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Dessert')}}"><div>Dessert</div></a></div>
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Snacks')}}"><div>Snacks</div></a></div> <!--Might merge these two categories.-->
+        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Sides')}}"><div>Sides</div></a></div> <!--Might merge these two categories.-->
+    </div>
+    <div class="recipe-search-results">
+    {% for recipe in recipes %}
+        <a class="recipe-thumbnail-object"  href="{{ url_for('recipe_page', ID=recipe._id) }}">
+            <div class="thumbnail-background" style="background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.5)), url('{{recipe.image_link}}')"><!--Not happy with the inline styling, but not aware of a clearer way to pass this yet.-->
+                <h3 class="thumbnail-title">{{recipe.recipe_name}}</h3>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}
