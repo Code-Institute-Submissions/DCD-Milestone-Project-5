@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
-    <div class="">
-        <h3 class="recipeTitle">{{recipe.recipe_name}}</h3>
+    <article class="recipe-content">
+        <h3 class="recipe-title">{{recipe.recipe_name}}</h3>
         <span>{{recipe.servings}}</span>
         <div>Preparation time: {{recipe.prep_time}} minutes</div>
         <div>Cooking time: {{ recipe.cook_time }} minutes</div>
@@ -9,9 +9,9 @@
             <span>{{recipe.ingredients}}</span>
         </div>
         <div>Cooking Tools needed: {{recipe.tools_needed}}</div> <!--If no tools, don't make this appear-->
-        <img src="{{recipe.image_link}}" alt="a picture of {{recipe.recipe_name}}">
+        <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.recipe_name}}">
         <div>{{recipe.method}}</div>
-    </div>
+    </article>
     <div>
         <button>
             <a href="{{url_for('edit_recipe', ID=recipe._id)}}">Edit Recipe</a>

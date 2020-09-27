@@ -46,7 +46,7 @@ def name_search():
     return render_template('recipe_search.html', recipes=results)
 
 
-@app.route('/recipes/<ID>')
+@app.route('/recipes/view/<ID>')
 def recipe_page(ID):
     targetRecipe = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
     return render_template('recipe_page.html', recipe=targetRecipe)
@@ -62,18 +62,18 @@ def edit_recipe(ID):
         return render_template('edit_recipe.html', target_recipe=target)
 
 
-@app.route('/insert_recipe/<ID>', methods=["POST"])
-def insert_recipe(ID):
-    if(ID == 'new'):
+@app.route('/insert_recipe/<ID_target>', methods=["POST"])
+def insert_recipe(ID_target):
+    if(ID_target == 'new'):
         recipes = mongo.db.recipes
         recipes.insert_one(request.form.to_dict())
 
     else:
         recipes = mongo.db.recipes
         setDict = request.form.to_dict()
-        recipes.update_one({'_id': ObjectId(ID)}, {'$set': setDict})
+        recipes.update_one({'_id': ObjectId(ID_target)}, {'$set': setDict})
 
-    return redirect(url_for('recipe_page', ID))
+    return redirect(url_for('recipe_page', ID=ID_target))
 
 
 @app.route('/delete_recipe/<ID>')

@@ -127,6 +127,12 @@ body{
 }
 
 /*Edit Recipe Page*/
+.recipe-edit-form{
+    width:80vw;
+    height:80vh;
+    margin:30px auto;
+}
+
 #preparationTime, #cookingTime{
     max-width: 4rem;
 }
@@ -135,4 +141,17 @@ body{
     max-width:50%;
     margin:0;
     padding:0;
+}
+
+/*Recipe Page*/
+.recipe-content{
+    width: 80%;
+    margin: 30px auto;
+}
+
+.recipe-image{
+    right: -40vw;
+    top: -17vh;
+    width: 40vw;
+    position: relative;
 }

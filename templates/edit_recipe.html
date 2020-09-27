@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content%}
-
-    {% if target_recipe == 0 %}
-    <form action="{{ url_for('insert_recipe', ID='new') }}" method="POST">
-    {% else %}
-    <form action="{{ url_for('insert_recipe', ID=target_recipe._id) }}" method="POST">
+    <form class="recipe-edit-form" 
+    {% if target_recipe == 0 %} action="{{ url_for('insert_recipe', ID_target='new') }}" 
+    {% else %} 
+    action="{{ url_for('insert_recipe', ID_target=target_recipe._id) }}" 
     {% endif %}
+    method="POST">
 
         <div class="row">
             <div class="col">
@@ -44,7 +44,7 @@
 
         <div class="row">
             <div class="col">
-            <label for="ingredientsList">Ingredients</label>
+            <label for="ingredientsList">Ingredients:</label>
             <input id="ingredientsList" name="ingred_list" type="text" value="{{ target_recipe.ingred_list }}" required><!--change to an add additional kind of situation, so a nested document, or could be a text area.-->
             </div>
         </div>
