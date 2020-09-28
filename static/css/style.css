@@ -28,11 +28,11 @@ body{
     text-decoration: none;
 }
 
-.nav-logo, .navbar-item a, .title-splash, .recipe-thumbnail-object{
+.nav-logo, .navbar-item a, .title-splash, .recipe-thumbnail-object, .edit-button a, .delete-button a{
     color:#f0f8fa;
 }
 
-.navbar-item a:hover, .nav-logo:hover, .recipe-thumbnail-object:hover{
+.navbar-item a:hover, .nav-logo:hover, .recipe-thumbnail-object:hover, .edit-button a:hover, .delete-button a:hover{
     color:#d3d6d6;
     text-decoration: none;
 }
@@ -50,13 +50,13 @@ body{
 .navbar{
     height:50px;
     background:linear-gradient(#46a3b8,#3891A6, #257283);
-    border-bottom: 1px solid #236472
+    border-bottom: 1px solid #15373f
 }
 
 .navbar-list{
-    margin:0;
+    margin:0 10px 0 0;
     padding:0;
-    border: 1px solid #33889b;
+    border: 1px solid #276a79;
 }
 
 .navbar-item{
@@ -64,7 +64,7 @@ body{
     width:fit-content;
     text-align: center;
     vertical-align: middle;
-    border:1px solid #2f8396;
+    border:1px solid #276a79;
 }
 
 .navbar-item:hover{
@@ -150,8 +150,27 @@ body{
 }
 
 .recipe-image{
-    right: -40vw;
-    top: -17vh;
+    right: 10vw;
+    top: 10vh;
     width: 40vw;
-    position: relative;
+    position: absolute;
+}
+
+.edit-button{
+    background-color: #7d82B8;
+    border-color: #9296c9;
+}
+
+.edit-button:hover{
+    background-color: #43466b;
+    border-color: #43466b;
+}
+
+.ed-button-container{
+    width: 80vw;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

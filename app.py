@@ -41,8 +41,6 @@ def recipe_search(category):
 def name_search():
     searchString = format(request.args.get('search'))
     results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
-    print(searchString)
-    print(results)
     return render_template('recipe_search.html', recipes=results)
 
 
@@ -67,6 +65,8 @@ def insert_recipe(ID_target):
     if(ID_target == 'new'):
         recipes = mongo.db.recipes
         recipes.insert_one(request.form.to_dict())
+        new_recipe = recipes.find_one({'recipe_name': request.form['recipe_name']})
+        ID_target = new_recipe.get('_id')
 
     else:
         recipes = mongo.db.recipes

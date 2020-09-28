@@ -2,7 +2,7 @@
 {% block content%}
     <form class="recipe-edit-form" 
     {% if target_recipe == 0 %} action="{{ url_for('insert_recipe', ID_target='new') }}" 
-    {% else %} 
+    {% else %}
     action="{{ url_for('insert_recipe', ID_target=target_recipe._id) }}" 
     {% endif %}
     method="POST">
@@ -45,14 +45,14 @@
         <div class="row">
             <div class="col">
             <label for="ingredientsList">Ingredients:</label>
-            <input id="ingredientsList" name="ingred_list" type="text" value="{{ target_recipe.ingred_list }}" required><!--change to an add additional kind of situation, so a nested document, or could be a text area.-->
+            <input id="ingredientsList" name="ingred_list" type="text" value="{{ target_recipe.ingred_list }}" required><!--To be an Embedded document, somehow-->
             </div>
         </div>
 
         <div class="row">
             <div class="col">
             <label for="toolsNeeded">Special Kitchenware Needed: </label>
-            <input id="toolsNeeded" name="tools_needed" type="text" value="{{ target_recipe.tools_needed }}">
+            <input id="toolsNeeded" name="tools_needed" type="text" value="{{ target_recipe.tools_needed }}"><!--To be an Embedded document, somehow-->
             </div>
             <div class="col">
             <label for="imageEntry">Url for Image: </label>
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col">
             <label for="cooking Method">Cooking Method: </label>
-            <textarea id="cookingMethod" class="col" name="method" required>{{ target_recipe.method }}</textarea>
+            <textarea id="cookingMethod" class="col" name="method" required>{{ target_recipe.method }}</textarea><!--To be an Embedded document, somehow-->
             </div>
         </div>
 

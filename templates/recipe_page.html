@@ -6,17 +6,17 @@
         <div>Preparation time: {{recipe.prep_time}} minutes</div>
         <div>Cooking time: {{ recipe.cook_time }} minutes</div>
         <div><h4>Ingredients:</h4>
-            <span>{{recipe.ingredients}}</span>
+            <span>{{recipe.ingred_list}}</span>
         </div>
         <div>Cooking Tools needed: {{recipe.tools_needed}}</div> <!--If no tools, don't make this appear-->
         <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.recipe_name}}">
         <div>{{recipe.method}}</div>
     </article>
-    <div>
-        <button>
+    <div class="ed-button-container row">
+        <button class="edit-button col-1 btn btn-primary">
             <a href="{{url_for('edit_recipe', ID=recipe._id)}}">Edit Recipe</a>
         </button>
-        <button>
+        <button class="delete-button col-1 btn btn-danger">
             <a href="{{url_for('delete_recipe', ID=recipe._id)}}">Delete Recipe</a>
         </button>
     </div>
