@@ -8,10 +8,9 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 # Local environement variables, for security.
-ROOT_USER = os.environ.get('DB_USERNAME')
-ROOT_PASS = os.environ.get('DB_PASSWORD')
+ROOT_DB_URI = os.environ.get('DB_ADDRESS')
 
-app.config["MONGO_URI"] = 'mongodb+srv://{}:{}@recipeclusteralpha.k8y4a.mongodb.net/recipe-site-system?retryWrites=true&w=majority'.format(ROOT_USER, ROOT_PASS)
+app.config["MONGO_URI"] = ROOT_DB_URI
 
 # pyMongo Constructor
 mongo = PyMongo(app)
@@ -30,37 +29,37 @@ def home():
 def recipe_search(category):
     if(category == 'All'):
         searchResults = mongo.db.recipes.find()
-        return render_template('recipe_search.html', recipes=searchResults)
+        return render_template('recipes.html', recipes=searchResults)
 
     else:
         searchResults = mongo.db.recipes.find({'category': category})
-        return render_template('recipe_search.html', recipes=searchResults)
+        return render_template('recipes.html', recipes=searchResults)
 
 
 @app.route('/recipes')
 def name_search():
     searchString = format(request.args.get('search'))
     results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
-    return render_template('recipe_search.html', recipes=results)
+    return render_template('recipes.html', recipes=results)
 
 
 @app.route('/recipes/view/<ID>')
 def recipe_page(ID):
     targetRecipe = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
-    return render_template('recipe_page.html', recipe=targetRecipe)
+    return render_template('recipe.html', recipe=targetRecipe)
 
 
-@app.route('/edit_recipe/<ID>')
+@app.route('/recipes/edit/<ID>')
 def edit_recipe(ID):
     if(ID == 'new'):  # this is called when attempting to create a new recipe
-        return render_template('edit_recipe.html', target_recipe=0)
+        return render_template('edit.html', target_recipe=0)
 
     else:  # this is called when editing an existing one
         target = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
-        return render_template('edit_recipe.html', target_recipe=target)
+        return render_template('edit.html', target_recipe=target)
 
 
-@app.route('/insert_recipe/<ID_target>', methods=["POST"])
+@app.route('/insert-recipe/<ID_target>', methods=["POST"])
 def insert_recipe(ID_target):
     if(ID_target == 'new'):
         recipes = mongo.db.recipes
@@ -76,7 +75,7 @@ def insert_recipe(ID_target):
     return redirect(url_for('recipe_page', ID=ID_target))
 
 
-@app.route('/delete_recipe/<ID>')
+@app.route('/delete-recipe/<ID>')
 def delete_recipe(ID):
     mongo.db.recipes.delete_one({'_id': ObjectId(ID)})
     return redirect(url_for('recipe_search', category='All'))
