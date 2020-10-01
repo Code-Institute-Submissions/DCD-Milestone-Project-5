@@ -1,5 +1,5 @@
-# imports
 import os
+import time
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -61,16 +61,19 @@ def edit_recipe(ID):
 
 @app.route('/insert-recipe/<ID_target>', methods=["POST"])
 def insert_recipe(ID_target):
+    edited_recipe = request.form.to_dict()
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    edited_recipe.update({'last-edit-time':current_time})
     if(ID_target == 'new'):
+        edited_recipe.update({'creation-time':current_time})
+        edited_recipe.update({'viewcount':0})
         recipes = mongo.db.recipes
-        recipes.insert_one(request.form.to_dict())
+        recipes.insert_one(edited_recipe)
         new_recipe = recipes.find_one({'recipe_name': request.form['recipe_name']})
         ID_target = new_recipe.get('_id')
-
     else:
         recipes = mongo.db.recipes
-        setDict = request.form.to_dict()
-        recipes.update_one({'_id': ObjectId(ID_target)}, {'$set': setDict})
+        recipes.update_one({'_id': ObjectId(ID_target)}, {'$set': edited_recipe})
 
     return redirect(url_for('recipe_page', ID=ID_target))
 
