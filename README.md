@@ -30,23 +30,23 @@ The database is a document-based system, as this is what MongoDB provides, along
 
 #### Home Page
 
-![Homepage Wireframe](design/wireframes/homepage.png)
+![Homepage Wireframe](static/design/wireframes/homepage.png)
 
 ##### Recipe List Page
 
-![Recipe List Wireframe](design/wireframes/listpage.png)
+![Recipe List Wireframe](static/design/wireframes/listpage.png)
 
 #### Recipe Create/Edit Page
 
-![Recipe Create/Edit Page Wireframe](design/wireframes/createrecipe.png)
+![Recipe Create/Edit Page Wireframe](static/design/wireframes/createrecipe.png)
 
 #### Recipe Page
 
-![Recipe Page Wireframe](design/wireframes/recipemain.png)
+![Recipe Page Wireframe](static/design/wireframes/recipemain.png)
 
 #### Database Diagram
 
-![Database Diagram](design/diagrams/recipediagram.png)
+![Database Diagram](static/design/diagrams/recipediagram.png)
 
 ### Surface
 
@@ -54,7 +54,7 @@ The colour palette for this project needs to be both clean and immediately reada
 
 as such, this palette was chosen:
 
-![Colour Palette](design/dcd_palette.png)
+![Colour Palette](static/design/dcd_palette.png)
 
 This clean and readable design should extend to the general design of the elements of the page.
 
