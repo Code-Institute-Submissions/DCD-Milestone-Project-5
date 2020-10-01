@@ -1,5 +1,5 @@
 import os
-import time
+from datetime import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -20,8 +20,9 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    popResults = mongo.db.recipes.find()
-    newResults = mongo.db.recipes.find()
+    popResults = mongo.db.recipes.find().sort('viewcount')[0:4]
+    print(popResults)
+    newResults = mongo.db.recipes.find().sort('creation-time')[0:4]
     return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
 
 
@@ -45,8 +46,10 @@ def name_search():
 
 @app.route('/recipes/view/<ID>')
 def recipe_page(ID):
-    targetRecipe = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
-    return render_template('recipe.html', recipe=targetRecipe)
+    target_recipe = mongo.db.recipes.find_one({'_id': ObjectId(ID)})
+    target_recipe.update({'viewcount':target_recipe['viewcount']+1})
+    mongo.db.recipes.update_one({'_id': ObjectId(ID)}, {'$set':target_recipe})
+    return render_template('recipe.html', recipe=target_recipe)
 
 
 @app.route('/recipes/edit/<ID>')
