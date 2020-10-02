@@ -2,7 +2,7 @@
 {% block content%}
     
     <div class="recipe-search-controls">
-    <form action="{{url_for('name_search')}}" method="GET">
+    <form action="{{url_for('search', type='name')}}" method="GET">
         <input id="search" type="text" placeholder="Search by recipe name" name="search" required>
         <button type="submit"><i><i class="fas fa-search"></i></i></button>
     </form>

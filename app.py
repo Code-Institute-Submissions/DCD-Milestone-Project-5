@@ -26,21 +26,22 @@ def home():
     return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
 
 
-@app.route('/recipes/<category>')
-def recipe_search(category):
-    if(category == 'All'):
-        searchResults = mongo.db.recipes.find()
-        return render_template('recipes.html', recipes=searchResults)
+# @app.route('/recipes/<category>')
+# def recipe_search(category):
+#   if(category == 'All'):
+#       searchResults = mongo.db.recipes.find()
+#       return render_template('recipes.html', recipes=searchResults)
 
-    else:
-        searchResults = mongo.db.recipes.find({'category': category})
-        return render_template('recipes.html', recipes=searchResults)
+#   else:
+#       searchResults = mongo.db.recipes.find({'category': category})
+#       return render_template('recipes.html', recipes=searchResults)
 
 
 @app.route('/recipes')
-def name_search():
-    searchString = format(request.args.get('search'))
-    results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
+def search(type):
+    if(type == 'name'):
+        searchString = format(request.args.get('search'))
+        results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
     return render_template('recipes.html', recipes=results)
 
 
