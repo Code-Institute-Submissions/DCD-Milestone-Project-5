@@ -2,8 +2,13 @@
 {% block content%}
     
     <div class="recipe-search-controls">
+<<<<<<< HEAD
     <form action="{{url_for('search')}}" method="GET">
         <input id="search" type="text" placeholder="Search by recipe name" name="name" required>
+=======
+    <form action="{{url_for('search', type='name')}}" method="GET">
+        <input id="search" type="text" placeholder="Search by recipe name" name="search" required>
+>>>>>>> 4dfa31cb039e4b276e6f8f15c5df8d3dcafa24fd
         <button type="submit"><i><i class="fas fa-search"></i></i></button>
     </form>
         {% set categories=['All', 'Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snacks', 'Sides']  %}

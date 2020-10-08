@@ -27,6 +27,7 @@ def home():
     newResults = mongo.db.recipes.find().sort('creation_time')[0:4]
     return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
 
+<<<<<<< HEAD
 @app.route('/recipes')
 def search():
     type = list(request.args)[0]
@@ -38,6 +39,7 @@ def search():
             results = mongo.db.recipes.find()
         else:
             results = mongo.db.recipes.find({'category': search})
+
     return render_template('recipes.html', recipes=results)
 
 
