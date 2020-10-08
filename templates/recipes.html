@@ -2,17 +2,17 @@
 {% block content%}
     
     <div class="recipe-search-controls">
-    <form action="{{url_for('name_search')}}" method="GET">
-        <input id="search" type="text" placeholder="Search by recipe name" name="search" required>
+    <form action="{{url_for('search')}}" method="GET">
+        <input id="search" type="text" placeholder="Search by recipe name" name="name" required>
         <button type="submit"><i><i class="fas fa-search"></i></i></button>
     </form>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='All')}}"><div>All Recipes</div></a></div>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Breakfast')}}"><div>Breakfast</div></a></div>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Lunch')}}"><div>Lunch</div></a></div>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Dinner')}}"><div>Dinner</div></a></div>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Dessert')}}"><div>Dessert</div></a></div>
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Snacks')}}"><div>Snacks</div></a></div> <!--Might merge these two categories.-->
-        <div class="search-by-category"><a href="{{url_for('recipe_search', category='Sides')}}"><div>Sides</div></a></div> <!--Might merge these two categories.-->
+        {% set categories=['All', 'Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snacks', 'Sides']  %}
+        {% for category in categories %}
+        <form action="{{url_for('search')}}" method="GET">
+            <input type='hidden' name="category" value={{category}}>
+            <input class="search-by-category" type="submit" value={{category}}>
+        </form>
+        {% endfor %}
     </div>
     <div class="recipe-search-results">
     {% for recipe in recipes %}

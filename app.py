@@ -20,27 +20,24 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
+    # Gets the 4 most popular results by checking their viewcounts
     popResults = mongo.db.recipes.find().sort('viewcount')[0:4]
-    print(popResults)
+    
+    # and this gets the 4 most recently created recipes, rather than most recently edited.
     newResults = mongo.db.recipes.find().sort('creation-time')[0:4]
     return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
 
-
-@app.route('/recipes/<category>')
-def recipe_search(category):
-    if(category == 'All'):
-        searchResults = mongo.db.recipes.find()
-        return render_template('recipes.html', recipes=searchResults)
-
-    else:
-        searchResults = mongo.db.recipes.find({'category': category})
-        return render_template('recipes.html', recipes=searchResults)
-
-
 @app.route('/recipes')
-def name_search():
-    searchString = format(request.args.get('search'))
-    results = mongo.db.recipes.find({'recipe_name': {'$regex': searchString, "$options": "$i"}})
+def search():
+    type = list(request.args)[0]
+    search = format(request.args.get(type))
+    if(type == 'name'):
+        results = mongo.db.recipes.find({'recipe_name': {'$regex': search, "$options": "$i"}})
+    elif(type == 'category'):
+        if(search == 'All'):
+            results = mongo.db.recipes.find()
+        else:
+            results = mongo.db.recipes.find({'category': search})
     return render_template('recipes.html', recipes=results)
 
 
