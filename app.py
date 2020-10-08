@@ -81,7 +81,7 @@ def insert_recipe(ID_target):
 @app.route('/delete-recipe/<ID>')
 def delete_recipe(ID):
     mongo.db.recipes.delete_one({'_id': ObjectId(ID)})
-    return redirect(url_for('recipe_search', category='All'))
+    return redirect(url_for('search', category='All'))
 
 
 if __name__ == '__main__':
