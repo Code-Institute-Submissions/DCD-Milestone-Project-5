@@ -24,7 +24,7 @@ def home():
     popResults = mongo.db.recipes.find().sort('viewcount')[0:4]
     
     # and this gets the 4 most recently created recipes, rather than most recently edited.
-    newResults = mongo.db.recipes.find().sort('creation-time')[0:4]
+    newResults = mongo.db.recipes.find().sort('creation_time')[0:4]
     return render_template("home.html", recipes_popular=popResults, recipes_new=newResults)
 
 @app.route('/recipes')
@@ -32,7 +32,7 @@ def search():
     type = list(request.args)[0]
     search = format(request.args.get(type))
     if(type == 'name'):
-        results = mongo.db.recipes.find({'recipe_name': {'$regex': search, "$options": "$i"}})
+        results = mongo.db.recipes.find({'name': {'$regex': search, "$options": "$i"}})
     elif(type == 'category'):
         if(search == 'All'):
             results = mongo.db.recipes.find()
@@ -63,13 +63,13 @@ def edit_recipe(ID):
 def insert_recipe(ID_target):
     edited_recipe = request.form.to_dict()
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    edited_recipe.update({'last-edit-time':current_time})
+    edited_recipe.update({'last_edit_time':current_time})
     if(ID_target == 'new'):
-        edited_recipe.update({'creation-time':current_time})
+        edited_recipe.update({'creation_time':current_time})
         edited_recipe.update({'viewcount':0})
         recipes = mongo.db.recipes
         recipes.insert_one(edited_recipe)
-        new_recipe = recipes.find_one({'recipe_name': request.form['recipe_name']})
+        new_recipe = recipes.find_one({'name': request.form['name']})
         ID_target = new_recipe.get('_id')
     else:
         recipes = mongo.db.recipes

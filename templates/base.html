@@ -14,7 +14,7 @@
         <a class="nav-logo col-5" href="{{url_for('home')}}"><i class="fas fa-utensils"></i> Communal Cookbook</a> 
         <div class="navbar-list col-5 row align-items-center">
             <div class="navbar-item col"><a href="{{url_for('home')}}"><div>Home</div></a></div>
-            <div class="navbar-item col"><a href="{{url_for('recipe_search', category='All')}}"><div>Browse Recipes</div></a></div>
+            <div class="navbar-item col"><a href="{{url_for('search', category='All')}}"><div>Browse Recipes</div></a></div>
             <div class="navbar-item col"><a href="{{url_for('edit_recipe', ID='new')}}"><div>Add A Recipe</div></a></div>
         </div>
     </nav>
@@ -28,5 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script><!--Need to add API key, might wanna check how to have that be Env Variable-->
+    <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
 </body>
 </html>

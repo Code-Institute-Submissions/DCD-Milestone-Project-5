@@ -28,16 +28,16 @@
             </div>
             <div class="col-2">
             <label for="servings"> Servings: </label>
-            <input id="servings" name="servings" type="text" value="{{ target_recipe.servings }}">
+            <input id="servings" name="servings" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.servings }}{% endif %}">
             </div>
             <div class="col-4">
             <label for="preperationTime"> Preperation Time: </label>
-            <input id="preparationTime" name="prep-time" type="number" value="{{ target_recipe.prep-time }}"> <!-- need to enforce variable type -->
+            <input id="preparationTime" name="prep_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}"> <!-- need to enforce variable type -->
             <span class="minute-label"> Minutes </span>
             </div>
             <div class="col-4">
             <label for="cookingTime"> Cooking Time: </label>
-            <input id="cookingTime" name="cook-time" type="number" value="{{ target-recipe.cook-time }}">
+            <input id="cookingTime" name="cook_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
             <span class="minute-label"> Minutes </span>
             </div>
         </div>
@@ -45,24 +45,24 @@
         <div class="row">
             <div class="col">
             <label for="ingredientsList">Ingredients:</label>
-            <input id="ingredientsList" name="ingred-list" type="text" value="{{ target_recipe.ingred-list }}" required>
+            <input id="ingredientsList" name="ingred_list" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.ingred_list }}{% endif %}" required>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
             <label for="toolsNeeded">Special Kitchenware Needed: </label>
-            <input id="toolsNeeded" name="tools-needed" type="text" value="{{ target_recipe.tools-needed }}">
+            <input id="toolsNeeded" name="tools_needed" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.tools_needed }}{% endif %}">
             <div class="col">
             <label for="imageEntry">Url for Image: </label>
-            <input id="imageEntry" name="image-link" type="text" value="{{ target_recipe.image-link }}">
+            <input id="imageEntry" name="image_link" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.image_link }}{% endif %}">
             </div>
         </div>
 
         <div class="row">
             <div class="col">
             <label for="cooking Method">Cooking Method: </label>
-            <textarea id="cookingMethod" class="col" name="method" required>{{ target_recipe.method }}</textarea>
+            <textarea id="cookingMethod" class="col" name="method" required>{% if target_recipe != 0 %}{{ target_recipe.method }}{% endif %}</textarea>
             </div>
         </div>
 
