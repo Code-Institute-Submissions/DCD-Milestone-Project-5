@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content%}
     <article class="recipe-content">
-        <h3 class="recipe-title">{{recipe.recipe_name}}</h3>
+        <h3 class="recipe-title">{{recipe.name}}</h3>
         <span>{{recipe.servings}}</span>
         <div>Preparation time: {{recipe.prep_time}} minutes</div>
         <div>Cooking time: {{ recipe.cook_time }} minutes</div>
         <div><h4>Ingredients:</h4>
-            <span>{{recipe.ingred_list}}</span>
+            <span>{{recipe.ingred_list|safe}}</span>
         </div>
-        <div>Cooking Tools needed: {{recipe.tools_needed}}</div> <!--If no tools, don't make this appear-->
-        <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.recipe_name}}">
-        <div>{{recipe.method}}</div><!--Paragraph tags here not parsing, why?-->
+        <div>Cooking Tools needed: {{recipe.tools_needed|safe}}</div> <!--If no tools, don't make this appear-->
+        <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.name}}">
+        <div>{{recipe.method|safe}}</div><!--Paragraph tags here not parsing, why?-->
     </article>
     <div class="ed-button-container row">
         <button class="edit-button col-1 btn btn-primary">
