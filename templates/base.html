@@ -13,9 +13,27 @@
     <nav class="row navbar">
         <a class="nav-logo col-5" href="{{url_for('home')}}"><i class="fas fa-utensils"></i> Communal Cookbook</a> 
         <div class="navbar-list col-5 row align-items-center">
-            <div class="navbar-item col"><a href="{{url_for('home')}}"><div>Home</div></a></div>
-            <div class="navbar-item col"><a href="{{url_for('search', category='All')}}"><div>Browse Recipes</div></a></div>
-            <div class="navbar-item col"><a href="{{url_for('edit_recipe', ID='new')}}"><div>Add A Recipe</div></a></div>
+            <div class="navbar-item col">
+                <a href="{{url_for('home')}}">
+                    <div>
+                        <span class="navbar-item-text">Home</span> <i class="fas fa-home"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="navbar-item col">
+                <a href="{{url_for('search', category='All')}}">
+                    <div>
+                        <span class="navbar-item-text">Browse Recipes</span> <i class="fas fa-search"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="navbar-item col">
+                <a href="{{url_for('edit_recipe', ID='new')}}">
+                    <div>
+                        <span class="navbar-item-text">Add A Recipe</span> <i class="fas fa-folder-plus"></i>
+                    </div>
+                </a>
+            </div>
         </div>
     </nav>
     <!--Block for page content-->
