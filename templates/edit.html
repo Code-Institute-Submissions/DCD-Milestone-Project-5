@@ -29,14 +29,14 @@
                 <input id="servings" name="servings" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.servings }}{% endif %}">
             </div>
             <div class="col-6">
-                <label for="preperationTime"><h5>Preperation Time: </h5></label>
+                <label for="preperationTime"><h5>Preparation Time: </h5></label>
                 <input id="preparationTime" name="prep_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}"> <!-- need to enforce variable type -->
-                <span class="minute-label"> Minutes </span>
+                <span class="minute-label"> Minutes</span>
             </div>
             <div class="col-6">
-                <label for="cookingTime"> <h5>Cooking Time: </h5></label>
+                <label for="cookingTime"><h5>Cooking Time: </h5></label>
                 <input id="cookingTime" name="cook_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
-                <span class="minute-label"> Minutes </span>
+                <span class="minute-label"> Minutes</span>
             </div>
 
         <div class="col-12">
@@ -44,7 +44,7 @@
                 <textarea id="ingredientsList" class="tiny-mce-target-bul"  name="ingred_list" type="text" >{% if target_recipe != 0 %}{{ target_recipe.ingred_list }}{% endif %}</textarea>
             </div>
             <div class="col-6">
-                <label for="imageEntry"><h5>Url for Image: </h5></label>
+                <label for="imageEntry"><h5>URL for Image: </h5></label>
                 <input id="imageEntry" name="image_link" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.image_link }}{% endif %}">
             </div>
                 <div class="col-12">
@@ -56,10 +56,8 @@
                     <textarea id="cookingMethod" class="tiny-mce-target-num" name="method">{% if target_recipe != 0 %}{{ target_recipe.method }}{% endif %}</textarea>
                 </div>
                 <div class="col-2">
-                    <button class="edit-submit" type="submit" >Submit Recipe</button>
+                    <button class="edit-submit" type="submit">Submit Recipe</button>
             </div>
         </div>
-
-        
     </form>
 {% endblock %}
