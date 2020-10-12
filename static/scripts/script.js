@@ -1,3 +1,20 @@
+/* searchMenuToggle()
+
+This function is called when clicking the menu toggle button on the search page, which is only visible on small viewports.
+it toggles the visibility of the search menu.
+
+*/
+function searchMenuToggle(){
+    let target = document.getElementById("recipe-search-controls");
+    displayType = target.style.display;
+    if(displayType != "none"){
+        target.style.display = "none";
+    }
+    else{
+        target.style.display = "flex";
+    }
+}
+
 /*
 searchPaginate()
 

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content%}
     
-    <div class="recipe-search-controls">
-
+    <button class="search-controls-toggle" onclick="searchMenuToggle()"><i class="fas fa-list-ul"></i></button>
+    <div id="recipe-search-controls">  
     <form class="name-search" action="{{url_for('search')}}" method="GET">
         <input id="search" type="text" placeholder="Search by recipe name" name="name" required>
         <button type="submit"><i><i class="fas fa-search"></i></i></button>

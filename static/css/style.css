@@ -144,7 +144,7 @@ body{
     justify-content: start;
 }
 
-.recipe-search-controls{
+#recipe-search-controls{
     display: flex;
     float: left;
     flex-direction: column;
@@ -155,6 +155,7 @@ body{
 
 .name-search{
     padding:10px;
+    border-bottom: 1px solid #b3350f;
 }
 
 .name-search button{
@@ -170,17 +171,35 @@ body{
 }
 
 .search-by-category{
-    width:100%;
-    padding: 10px;
-    border: 0px solid;
-    background-color:#db423a;
-    color:#f0f8fa;
-    transition-duration:0.2s;
+    border:0px;
+    border-bottom: 1px solid #b3350f;
 }
 
-.search-by-category:hover{
-    background-color:#c2433c;
+.search-controls-toggle{
+    border:1px solid #b3350f;
+    display:none;
 }
+
+.search-by-category:hover, .search-controls-toggle:hover{
+    background-color:#c2433c;
+    border:0px;
+    border-bottom: 1px solid #b3350f;
+    outline:none;
+}
+
+.search-by-category:focus, .search-controls-toggle:focus{
+    outline:none;
+}
+
+.search-controls-toggle, .search-by-category{
+    padding: 10px;
+    background-color:#db423a;
+    width:100%;
+    color:#f0f8fa;
+    transition-duration:0.2s;
+    outline:none;
+}
+
 
 /*Edit Recipe Page*/
 .recipe-edit-form{
@@ -267,9 +286,45 @@ body{
     bottom: 0;
 }
 
+/* footer */
+.footer>div{
+    display:flex;
+    align-items:center;
+}
+
 /* width-based rules */
 @media(max-width:1100px){
     .navbar-item-text{
         display:none;
     }
+    #recipe-search-controls{
+    display: none;
+    align-self: center;
+    flex-direction: column;
+    background-color:#db423a;
+    padding:0;
+    height:auto;
+    width: 105vw;
+    left: -5px;
+    position: relative;
+    }
+    .name-search{
+        width:100%;
+        justify-content: center;
+        display:flex;
+    }
+    #search{
+        width:70vw;
+    }
+    .recipe-search-results{
+        justify-content: center;
+    }
+    .search-controls-toggle{
+        width: 105vw;
+        left: -5px;
+        position: relative;
+        display:block;
+    }
 }
+
+
