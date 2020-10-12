@@ -13,6 +13,7 @@ font-family: 'Mukta', sans-serif;
 body{
     background-color: #f0f8fa;
     color: #2e282a;
+    font-family: 'Mukta', sans-serif;
     padding:0!important;
 }
 
@@ -20,7 +21,7 @@ body{
     text-decoration: none;
 }
 
-.nav-logo, .navbar-item a, .title{
+.nav-logo, .navbar-item a, .title, .delete-button, .edit-button{
     font-family:'Kufam', cursive;
 }
 
@@ -38,7 +39,7 @@ body{
     text-decoration: none;
 }
 
-.recipe-search-controls{
+.recipe-search-controls, .footer div{
     font-family: 'Mukta', sans-serif;
 } 
 
@@ -87,7 +88,9 @@ body{
 }
 
 .recipe-thumbnail-object{
-    width: 17rem;
+    min-width: 17rem;
+    max-width: 17rem;
+    width:17rem;
     margin:1rem 1.5rem;
     height:10rem;
     display:inline-flex;
@@ -99,15 +102,25 @@ body{
 }
 
 .thumbnail-title{
-    text-align: center;
     bottom: -7rem;
     position: relative;
+}
+
+.footer{
+    background-color:#2E282A;
+    color:#f0f8fa;
+    position:relative;
+    bottom:0;
+    height:40px;
+    width:100%;
+    margin:0;
+    padding:5px
+
 }
 
 /*Home page*/
 .title-splash{
     height:60vh;
-    
     margin-left:-15px;
     margin-right:-15px;
     margin-bottom:50px;
@@ -129,24 +142,55 @@ body{
 /*Recipe Search*/
 .recipe-search-results{
     display:flex;
+    justify-content: start;
 }
 
 .recipe-search-controls{
     display: flex;
     float: left;
     flex-direction: column;
+    background-color:#db423a;
+    padding-bottom:10px;
+    height:100vh;
 }
 
-.search-by-category a div{
+.name-search{
+    padding:10px;
+}
+
+.name-search button{
+    background-color: #f0f8fA;
+    border: 1px solid #c2433c;
+    color: #2e282a;
+    display: inline-flex;
+    border-radius: 20%;
+}
+
+.category-container{
+    width:100%;
+}
+
+.search-by-category{
+    width:100%;
     padding: 10px;
-    border: 1px solid #7d82B8;
+    border: 0px solid;
+    background-color:#db423a;
+    color:#f0f8fa;
+    transition-duration:0.2s;
+}
+
+.search-by-category:hover{
+    background-color:#c2433c;
 }
 
 /*Edit Recipe Page*/
 .recipe-edit-form{
     width:80vw;
-    height:80vh;
     margin:30px auto;
+}
+
+.recipe-edit-form .row>div{
+    margin-top:20px;
 }
 
 #preparationTime, #cookingTime{
@@ -166,10 +210,11 @@ body{
 }
 
 .recipe-image{
-    right: 10vw;
-    top: 10vh;
+    right: -10%;
+    top: -40px;
     width: 40vw;
-    position: absolute;
+    position: relative;
+    float: right;
 }
 
 .edit-button{
@@ -182,10 +227,15 @@ body{
     border-color: #43466b;
 }
 
+.delete-button, .edit-button{
+    margin:20px;
+}
+
 .ed-button-container{
     width: 80vw;
     margin: auto;
-    position: absolute;
+    display:flex;
+    justify-content: center;
     left: 0;
     right: 0;
     bottom: 0;

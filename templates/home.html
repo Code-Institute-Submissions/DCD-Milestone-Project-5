@@ -8,7 +8,7 @@
         {% for recipe in recipes_popular %}
             <a class="recipe-thumbnail-object"  href="{{ url_for('recipe_page', ID=recipe._id) }}">
                 <div class="thumbnail-background" style="background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.5)), url('{{recipe.image_link}}')"><!--Not happy with the inline styling, but not aware of a clearer way to pass this yet.-->
-                    <h3 class="thumbnail-title">{{recipe.name}}</h3>
+                    <h3 class="thumbnail-title title">{{recipe.name}}</h3>
                 </div>
             </a>
         {% endfor %}
@@ -18,7 +18,7 @@
         {% for recipe in recipes_new %}
             <a class="recipe-thumbnail-object"  href="{{ url_for('recipe_page', ID=recipe._id) }}">
                 <div class="thumbnail-background" style="background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.5)), url('{{recipe.image_link}}')"><!--Not happy with the inline styling, but not aware of a clearer way to pass this yet.-->
-                    <h3 class="thumbnail-title">{{recipe.name}}</h3>
+                    <h3 class="thumbnail-title title">{{recipe.name}}</h3>
                 </div>
             </a>
         {% endfor %}

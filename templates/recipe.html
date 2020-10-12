@@ -2,16 +2,18 @@
 {% block content%}
     <article class="recipe-content">
         <h3 class="recipe-title">{{recipe.name}}</h3>
+        <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.name}}">
         <span>{{recipe.servings}}</span>
         <div>Preparation time: {{recipe.prep_time}} minutes</div>
         <div>Cooking time: {{ recipe.cook_time }} minutes</div>
-        <div><h4>Ingredients:</h4>
+        <div><h5>Ingredients:</h5>
             <span>{{recipe.ingred_list|safe}}</span>
         </div>
         <div>Cooking Tools needed: {{recipe.tools_needed|safe}}</div> <!--If no tools, don't make this appear-->
-        <img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.name}}">
+        
         <div>{{recipe.method|safe}}</div><!--Paragraph tags here not parsing, why?-->
     </article>
+    
     <div class="ed-button-container row">
         <button class="edit-button col-1 btn btn-primary">
             <a href="{{url_for('edit_recipe', ID=recipe._id)}}">Edit Recipe</a>
