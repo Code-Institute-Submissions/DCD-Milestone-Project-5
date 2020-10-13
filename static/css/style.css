@@ -205,6 +205,7 @@ body{
 .recipe-edit-form{
     width:80vw;
     margin:30px auto;
+    display:flex;
 }
 
 .recipe-edit-form .row>div{
@@ -221,6 +222,20 @@ body{
     padding:0;
 }
 
+.edit-submit{
+    background-color: #7d82B8;
+    border:1px solid #9296c9;
+    color:#f0f8fA;
+    padding:20px;
+    display:flex;
+    align-self: center;
+}
+
+.edit-submit:hover{
+    background-color: #5a5f96;
+    border:1px solid #6b70ac;
+}
+
 /*Recipe Page*/
 .recipe-content{
     width: 80%;
@@ -232,9 +247,8 @@ body{
 }
 
 .recipe-image{
-    right: -10%;
     top: -40px;
-    width: 40vw;
+    width: 30vw;
     position: relative;
     float: right;
 }
@@ -327,4 +341,6 @@ body{
     }
 }
 
+@media(max-width:769px){
 
+}

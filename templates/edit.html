@@ -9,11 +9,11 @@
 
         <div class="row">
             <div class="col-12">
-            <label for="recipeName" > <h5>New Recipe Name:</h5> </label>
+            <label for="recipeName" ><h5>New Recipe Name:</h5> </label>
             <input id="recipeName" name="name" type="text" value="{{ target_recipe.name }}" required>
             </div>
 
-            <div class="col-3">
+            <div class="col-md-6">
             <label class="cat-label" for="categorySelect"><h5>Category: </h5></label>
                 <select id="categorySelect" name="category">
                     <option value="Breakfast" {% if target_recipe.category == "Breakfast" %} selected {% endif %} >Breakfast</option>
@@ -24,26 +24,26 @@
                     <option value="Sides" {% if target_recipe.category == "Sides" %} selected {% endif %} >Side</option>
                 </select>
             </div>
-            <div class="col-4">
+            <div class="col-md-6">
                 <label for="servings"><h5>Servings: </h5></label>
                 <input id="servings" name="servings" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.servings }}{% endif %}">
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <label for="preperationTime"><h5>Preparation Time: </h5></label>
                 <input id="preparationTime" name="prep_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}"> <!-- need to enforce variable type -->
-                <span class="minute-label"> Minutes</span>
+                <span class="minute-label"> Min.</span>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <label for="cookingTime"><h5>Cooking Time: </h5></label>
                 <input id="cookingTime" name="cook_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
-                <span class="minute-label"> Minutes</span>
+                <span class="minute-label"> Min.</span>
             </div>
 
         <div class="col-12">
                 <label for="ingredientsList"><h5>Ingredients:</h5></label>
                 <textarea id="ingredientsList" class="tiny-mce-target-bul"  name="ingred_list" type="text" >{% if target_recipe != 0 %}{{ target_recipe.ingred_list }}{% endif %}</textarea>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <label for="imageEntry"><h5>URL for Image: </h5></label>
                 <input id="imageEntry" name="image_link" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.image_link }}{% endif %}">
             </div>
@@ -55,7 +55,7 @@
                     <label for="cookingMethod"><h5>Cooking Method: </h5></label>
                     <textarea id="cookingMethod" class="tiny-mce-target-num" name="method">{% if target_recipe != 0 %}{{ target_recipe.method }}{% endif %}</textarea>
                 </div>
-                <div class="col-2">
+                <div class="col">
                     <button class="edit-submit" type="submit">Submit Recipe</button>
             </div>
         </div>

@@ -6,7 +6,7 @@ it toggles the visibility of the search menu.
 */
 function searchMenuToggle(){
     let target = document.getElementById("recipe-search-controls");
-    displayType = target.style.display;
+    displayType = getComputedStyle(target).display;
     if(displayType != "none"){
         target.style.display = "none";
     }
@@ -22,8 +22,25 @@ This function uses Ajax calls to perform dynamic pagination
 of the serach results, to allow for a seamless browsing experience
 
 */
-function searchPaginate(){
-    
+function searchPaginate(totalPages, page){
+    //first loop that changes which page is currently active.
+    for(let a = 1; a <= totalPages; a++)
+    {
+        let elementID = `page-button-${a}`;
+        if(a = page){
+            document.getElementById(elementID).classList.add('active');
+        }
+        else{
+            document.getElementById(elementID).classList.remove('active');
+        }
+    }
+    for(let b = 1; b<=totalPages*8; b++){
+        recipeTarget = document.getElementById(`recipe-${b}`)
+        if(recipeTarget != null && (b>(8*page-7) && b<(8*page)))
+        {
+            getComputedStyle(recipeTarget).display='none';
+        }
+    }
 }
 
 

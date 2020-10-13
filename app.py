@@ -1,4 +1,5 @@
 import os
+import math
 from datetime import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -39,8 +40,8 @@ def search():
             results = mongo.db.recipes.find()
         else:
             results = mongo.db.recipes.find({'category': search})
-
-    return render_template('recipes.html', recipes=results)
+    pageCount = math.ceil(results.count()/8)
+    return render_template('recipes.html', recipes=results, totalResults=results.count(), pages=pageCount)
 
 
 @app.route('/recipes/view/<ID>')
