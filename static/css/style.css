@@ -175,23 +175,23 @@ body{
     border-bottom: 1px solid #b3350f;
 }
 
-.search-controls-toggle{
+#search-controls-toggle{
     border:1px solid #b3350f;
     display:none;
 }
 
-.search-by-category:hover, .search-controls-toggle:hover{
+.search-by-category:hover, #search-controls-toggle:hover{
     background-color:#c2433c;
     border:0px;
     border-bottom: 1px solid #b3350f;
     outline:none;
 }
 
-.search-by-category:focus, .search-controls-toggle:focus{
+.search-by-category:focus, #search-controls-toggle:focus{
     outline:none;
 }
 
-.search-controls-toggle, .search-by-category{
+#search-controls-toggle, .search-by-category{
     padding: 10px;
     background-color:#db423a;
     width:100%;
@@ -200,6 +200,9 @@ body{
     outline:none;
 }
 
+.hidden-start{
+    display:none;
+}
 
 /*Edit Recipe Page*/
 .recipe-edit-form{
@@ -333,7 +336,7 @@ body{
     .recipe-search-results{
         justify-content: center;
     }
-    .search-controls-toggle{
+    #search-controls-toggle{
         width: 105vw;
         left: -5px;
         position: relative;
