@@ -31,11 +31,9 @@ def home():
 # route for the recipe search page.
 @app.route('/recipes')
 def search():
-    # Gets the search data, and takes the search value from it.
     category = request.args.get('category')
     keyword = request.form.get('search')
 
-    # checks the type of the query, if it's a name does a simple search to find any names that contain the string.
     if(keyword != None):
         results = mongo.db.recipes.find({'name': {'$regex': keyword, "$options": "$i"}})
 
@@ -65,7 +63,7 @@ def recipe_page(ID):
 # route for the recipe editpage.
 @app.route('/recipes/edit/<ID>')
 def edit_recipe(ID):
-    if(ID == 'new'):  # called when editing a new recipe, obviously. Simply passes a value to the page to show this.
+    if(ID == 'new'):
         return render_template('edit.html', target_recipe=0)
 
     else:  # gets the recipe to be edited via its ID

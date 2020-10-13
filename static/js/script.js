@@ -30,7 +30,7 @@ before iterating through the results, setting the recipes for the targeted page 
 function searchPaginate(totalPages, targetPage, numResults) {
     //first loop that changes which page is currently active.
 	for (a = 1; a <= totalPages; a++) {
-		var elementID = `page-button-${a}`;
+		let elementID = `page-button-${a}`;
 		if (a === targetPage) {
 			document.getElementById(elementID).classList.add('active');
 		} else {
@@ -53,7 +53,11 @@ function searchPaginate(totalPages, targetPage, numResults) {
 	}
 }
 
-
+function fixSearchControls(){
+    if(window.innerWidth > 1100){
+        document.getElementById('recipe-search-controls').style.display = 'flex';
+    }
+}
 //tinyMCE integration
 tinymce.init({
 	selector: '.tiny-mce-target-bul',

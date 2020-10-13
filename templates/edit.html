@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 {% block content%}
-    <form class="recipe-edit-form" 
+<form class="recipe-edit-form" 
     {% if target_recipe == 0 %} action="{{ url_for('insert_recipe', ID_target='new') }}" 
     {% else %}
     action="{{ url_for('insert_recipe', ID_target=target_recipe._id) }}" 
     {% endif %}
     method="POST">
 
-        <div class="row">
-            <div class="col-12">
-            <label for="recipeName" ><h5>New Recipe Name:</h5> </label>
-            <input id="recipeName" name="name" type="text" value="{{ target_recipe.name }}" required>
+    <div>
+        <div class="form-row row">
+            <div class="form-group col-sm-6">
+                <label class="col-form-label" for="recipeName" ><h5>New Recipe Name:</h5> </label>
+                <input id="recipeName" class="form-control" name="name" type="text" value="{{ target_recipe.name }}" required>
             </div>
 
-            <div class="col-md-6">
-            <label class="cat-label" for="categorySelect"><h5>Category: </h5></label>
-                <select id="categorySelect" name="category">
+            <div class="form-group col-sm-6">
+                <label class="cat-label col-form-label" for="categorySelect"><h5>Category: </h5></label>
+                <select id="categorySelect" class="form-control" name="category">
                     <option value="Breakfast" {% if target_recipe.category == "Breakfast" %} selected {% endif %} >Breakfast</option>
                     <option value="Lunch" {% if target_recipe.category == "Lunch" %} selected {% endif %} >Lunch</option>
                     <option value="Dinner" {% if target_recipe.category == "Dinner" %} selected {% endif %} >Dinner</option>
@@ -24,40 +25,60 @@
                     <option value="Sides" {% if target_recipe.category == "Sides" %} selected {% endif %} >Side</option>
                 </select>
             </div>
-            <div class="col-md-6">
-                <label for="servings"><h5>Servings: </h5></label>
-                <input id="servings" name="servings" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.servings }}{% endif %}">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="servings" class="col-form-label"><h5>Servings: </h5></label>
+                <input id="servings" name="servings" class="form-control" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.servings }}{% endif %}">
             </div>
-            <div class="col-md-6">
-                <label for="preperationTime"><h5>Preparation Time: </h5></label>
-                <input id="preparationTime" name="prep_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}"> <!-- need to enforce variable type -->
-                <span class="minute-label"> Min.</span>
-            </div>
-            <div class="col-md-6">
-                <label for="cookingTime"><h5>Cooking Time: </h5></label>
-                <input id="cookingTime" name="cook_time" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-sm-4">
+                <label for="preperationTime" class="col-form-label"><h5>Preparation Time: </h5></label>
+                <input id="preparationTime" name="prep_time" class="form-control" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}"> <!-- need to enforce variable type -->
                 <span class="minute-label"> Min.</span>
             </div>
 
-        <div class="col-12">
-                <label for="ingredientsList"><h5>Ingredients:</h5></label>
-                <textarea id="ingredientsList" class="tiny-mce-target-bul"  name="ingred_list" type="text" >{% if target_recipe != 0 %}{{ target_recipe.ingred_list }}{% endif %}</textarea>
-            </div>
-            <div class="col-md-6">
-                <label for="imageEntry"><h5>URL for Image: </h5></label>
-                <input id="imageEntry" name="image_link" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.image_link }}{% endif %}">
-            </div>
-                <div class="col-12">
-                    <label for="toolsNeeded"><h5>Special Kitchenware Needed: </h5></label>
-                    <textarea id="toolsNeeded" class="tiny-mce-target-bul" name="tools_needed" type="text">{% if target_recipe != 0 %}{{ target_recipe.tools_needed }}{% endif %}</textarea>
-                </div> 
-                <div class="col-12">
-                    <label for="cookingMethod"><h5>Cooking Method: </h5></label>
-                    <textarea id="cookingMethod" class="tiny-mce-target-num" name="method">{% if target_recipe != 0 %}{{ target_recipe.method }}{% endif %}</textarea>
-                </div>
-                <div class="col">
-                    <button class="edit-submit" type="submit">Submit Recipe</button>
+            <div class="form-group col-sm-4">
+                <label for="cookingTime" class="col-form-label"><h5>Cooking Time: </h5></label>
+                <input id="cookingTime" name="cook_time" class="form-control" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
+                <span class="minute-label"> Min.</span>
             </div>
         </div>
-    </form>
+
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="ingredientsList" class="col-form-label"><h5>Ingredients:</h5></label>
+                <textarea id="ingredientsList" class="tiny-mce-target-bul form-control"  name="ingred_list" type="text" >{% if target_recipe != 0 %}{{ target_recipe.ingred_list }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="imageEntry" class="col-form-label"><h5>URL for Image: </h5></label>
+                <input id="imageEntry" class="form-control" name="image_link" type="text" value="{% if target_recipe != 0 %}{{ target_recipe.image_link }}{% endif %}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="toolsNeeded" class="col-form-label"><h5>Special Kitchenware Needed: </h5></label>
+                <textarea id="toolsNeeded" class="tiny-mce-target-bul form-control" name="tools_needed" type="text">{% if target_recipe != 0 %}{{ target_recipe.tools_needed }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="cookingMethod" class="col-form-label"><h5>Cooking Method: </h5></label>
+                <textarea id="cookingMethod" class="tiny-mce-target-num form-control" name="method">{% if target_recipe != 0 %}{{ target_recipe.method }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <div class="col">
+            <button class="edit-submit" type="submit">Submit Recipe</button>
+        </div>
+    </div>
+</form>
 {% endblock %}
