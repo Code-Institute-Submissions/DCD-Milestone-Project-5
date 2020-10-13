@@ -110,11 +110,11 @@ body{
     color:#f0f8fa;
     position:relative;
     bottom:0;
-    height:40px;
-    width:100%;
+    width:110%;
     margin:0;
-    padding:5px
-
+}
+.footer div{
+    padding:15px;
 }
 
 /*Home page*/
@@ -153,7 +153,7 @@ body{
     flex-direction: column;
     background-color:#db423a;
     padding-bottom:10px;
-    height:100vh;
+    min-height:50rem;
 }
 
 .name-search{
@@ -373,7 +373,8 @@ body{
         width:70vw;
     }
     #search-controls-toggle{
-        left: -5px;
+        left:-5vw;
+        width:110vw;
         position: relative;
         display:block;
     }

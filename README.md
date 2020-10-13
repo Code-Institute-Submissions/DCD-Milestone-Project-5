@@ -5,6 +5,7 @@ This is to act as an alternative to clumsily sharing photos of the recipes or li
  
 ## Demo
 
+A live version of this site is available [here](https://dcd-milestone-recipe-site.herokuapp.com/)
 
 ## UX
 
@@ -86,9 +87,21 @@ This clean and readable design should extend to the general design of the elemen
 
 ## Features
 
+The site consists of a digital recipe book, allowing users to view a variety of recipes via their browser. 
+The homepage features a short listing of the most viewed recipes and the most recently added ones, allowing users to stay up to date and provide them tantalising meal ideas. The search
+page allows users to find a particular recipe by its name, or to filter recipes by a desired meal category. The edit page allows users to alter the recipes, or add their own and ensure that these changes are saved.
+The delete button allows for the removal of recipes by users.
+Finally, the Recipe page allows users to view the recipe in a clean and clear manner, to make it easier to follow when cooking.
 
 ## Technologies Used
 
+[TinyMCE](https://www.tiny.cloud/)
+[Bootstrap](https://getbootstrap.com/)
+    - [JQuery](https://jquery.com/)
+[Flask](https://flask.palletsprojects.com/en/1.1.x/)
+[MongoDB](https://www.mongodb.com/cloud/atlas)
+[pyMongo](https://pymongo.readthedocs.io/en/stable/)
+[FontAwesome](https://fontawesome.com/)
 
 ## Testing
 
@@ -98,6 +111,9 @@ This clean and readable design should extend to the general design of the elemen
 
 ### Interesting Bugs & Known Issues
 
+#### Known Issues
+
+There's a minor scaling bug when changing the viewport width, but I can't be certain what's causing it due to the inconsistency with which it has occured during my testing. Going to go out on a limb and say it might be a chrome scaling issue, though I doubt it.
 
 ## Deployment
 
