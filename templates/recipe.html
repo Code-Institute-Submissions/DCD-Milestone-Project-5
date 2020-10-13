@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content%}
     <article class="recipe-content">
-        <h3 class="recipe-title">{{recipe.name}}</h3>
         {% if recipe.image_link !='' %}<img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.name}}">{% endif %}
-        <div>Makes {{ recipe.servings }}</div>
-        <div>Preparation time: {{ recipe.prep_time }} minutes</div>
-        <div>Cooking time: {{ recipe.cook_time }} minutes</div>
-        <div><h5>Ingredients:</h5>
-            <span>{{recipe.ingred_list|safe}}</span>
+        <h3 class="recipe-title">{{recipe.name}}</h3>
+        <div><b>Makes {{ recipe.servings }}</b></div>
+        <div><b>Preparation time:</b> {{ recipe.prep_time }} minutes</div>
+        <div><b>Cooking time:</b> {{ recipe.cook_time }} minutes</div>
+        <div><h4>Ingredients:</h4>
+            <div class="ingredients">{{recipe.ingred_list|safe}}</div>
         </div>
         <div>{% if recipe.tools_needed != '' %}Cooking Tools needed: {{ recipe.tools_needed|safe }} {% endif %}</div> <!--If no tools, don't make this appear-->
-        
-        <div>{{ recipe.method|safe }}</div><!--Paragraph tags here not parsing, why?-->
+        <div><h4>Method</h4></div>
+        <div class="method">{{ recipe.method|safe }}</div><!--Paragraph tags here not parsing, why?-->
     </article>
     
     <div class="ed-button-container row">

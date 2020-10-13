@@ -142,6 +142,9 @@ body{
 .recipe-search-results{
     display:flex;
     justify-content: center;
+    padding-top: 70px;
+    width:80%;
+    margin: auto;
 }
 
 #recipe-search-controls{
@@ -204,6 +207,10 @@ body{
     justify-content: center;
     position:relative;
     bottom:-40%;
+}
+
+.pagination{
+    margin: 50px;
 }
 
 .page-item a{
@@ -270,14 +277,17 @@ body{
 }
 
 .recipe-content>div{
-    margin:10px 0;
+    margin:20px 0;
 }
 
 .recipe-image{
-    top: -40px;
     width: 30vw;
     position: relative;
     float: right;
+}
+
+.method ol li, .ingredients ul li{
+    margin-top:15px;
 }
 
 .edit-button{
@@ -300,12 +310,12 @@ body{
     border-color:#235e6b;
 }
 
-
 .delete-button, .edit-button{
     margin:20px;
     padding:0;
     display:flex;
     max-width:100px;
+    margin-bottom:40px;
 }
 
 .edit-button a, .delete-button a{
@@ -334,6 +344,11 @@ body{
 }
 
 /* width-based rules */
+@media(max-width:1190px){
+    .recipe-search-results{
+        width:auto;
+    }
+}
 @media(max-width:1100px){
     .navbar-item-text{
         display:none;
@@ -358,13 +373,17 @@ body{
         width:70vw;
     }
     #search-controls-toggle{
-        width: 105vw;
         left: -5px;
         position: relative;
         display:block;
     }
 }
 
-@media(max-width:769px){
+@media(max-width:509px){
+    .recipe-image{
+        float:none;
+        width:80vw;
+        padding-bottom:30px;
 
+    }
 }
