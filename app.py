@@ -31,20 +31,20 @@ def home():
 # route for the recipe search page.
 @app.route('/recipes')
 def search():
-    # Gets the form submission data, and takes the search value from it.
-    type = list(request.args)[0]
-    search = format(request.args.get(type))
+    # Gets the search data, and takes the search value from it.
+    category = request.args.get('category')
+    keyword = request.form.get('search')
 
     # checks the type of the query, if it's a name does a simple search to find any names that contain the string.
-    if(type == 'name'):
-        results = mongo.db.recipes.find({'name': {'$regex': search, "$options": "$i"}})
+    if(keyword != None):
+        results = mongo.db.recipes.find({'name': {'$regex': keyword, "$options": "$i"}})
 
     # if it's a category, checks if it is for all recipes, and passes them to results. Otherwise, it searches for matching recipes via the category field.
-    elif(type == 'category'):
-        if(search == 'All'):
+    if(category != None):
+        if(category == 'All'):
             results = mongo.db.recipes.find()
         else:
-            results = mongo.db.recipes.find({'category': search})
+            results = mongo.db.recipes.find({'category': category})
 
     # calculate the number of needed pages.
     pageCount = math.ceil(results.count()/8)

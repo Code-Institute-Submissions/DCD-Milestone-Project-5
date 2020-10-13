@@ -4,15 +4,12 @@
     <button id="search-controls-toggle" onclick="searchMenuToggle()"><i class="fas fa-list-ul"></i></button>
     <div id="recipe-search-controls">  
     <form class="name-search" action="{{url_for('search')}}" method="GET">
-        <input id="search" type="text" placeholder="Search by recipe name" name="name" required>
+        <input id="search" type="text" placeholder="Search by recipe name" name="search" required>
         <button type="submit"><i><i class="fas fa-search"></i></i></button>
     </form>
-        {% set categories=['All', 'Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snacks', 'Sides']  %}
+        {% set categories=['All', 'Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snacks', 'Sides']  %}<!--remove this-->
         {% for category in categories %}
-        <form class="category-container" action="{{url_for('search')}}" method="GET">
-            <input type='hidden' name="category" value={{category}}>
-            <button class="search-by-category" type="submit">{{category}}</button>
-        </form>
+        <a href="{{ url_for('search', category={{category}}) }}"></a>
         {% endfor %}
     </div>
     <div class="recipe-search-results row">

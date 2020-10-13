@@ -119,14 +119,14 @@ body{
 
 /*Home page*/
 .title-splash{
-    height:60vh;
+    height:40vh;
     margin-left:-15px;
     margin-right:-15px;
     margin-bottom:50px;
     padding:0;
     background:linear-gradient(#ffffff1a, #00000033), url(../images/baguetteStack.jpg);
     background-position:center;
-    background-size:auto;
+    background-size:cover;
     background-repeat: no-repeat;
 }
 

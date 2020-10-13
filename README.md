@@ -93,15 +93,17 @@ page allows users to find a particular recipe by its name, or to filter recipes 
 The delete button allows for the removal of recipes by users.
 Finally, the Recipe page allows users to view the recipe in a clean and clear manner, to make it easier to follow when cooking.
 
+### Changes From Design
+
 ## Technologies Used
 
-[TinyMCE](https://www.tiny.cloud/)
-[Bootstrap](https://getbootstrap.com/)
+- [TinyMCE](https://www.tiny.cloud/)
+- [Bootstrap](https://getbootstrap.com/)
     - [JQuery](https://jquery.com/)
-[Flask](https://flask.palletsprojects.com/en/1.1.x/)
-[MongoDB](https://www.mongodb.com/cloud/atlas)
-[pyMongo](https://pymongo.readthedocs.io/en/stable/)
-[FontAwesome](https://fontawesome.com/)
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+- [MongoDB](https://www.mongodb.com/cloud/atlas)
+- [pyMongo](https://pymongo.readthedocs.io/en/stable/)
+- [FontAwesome](https://fontawesome.com/)
 
 ## Testing
 
