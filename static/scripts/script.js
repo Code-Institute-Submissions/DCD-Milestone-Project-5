@@ -33,8 +33,7 @@ function searchPaginate(totalPages, currentPage, numResults) {
     
     let upperBounds = (8 * currentPage);
     let lowerBounds = (upperBounds) -7;
-    console.log(upperBounds);
-    console.log(lowerBounds);
+    
 	for (b = 1; b <= numResults; b++) {
 		let recipeTarget = document.getElementById(`recipe-${b}`);
         if (b>=lowerBounds && b<=upperBounds){
