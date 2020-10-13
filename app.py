@@ -1,9 +1,11 @@
 import os
 import math
+import requests
 from datetime import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from PIL import Image
 
 # creating flask instance
 app = Flask(__name__)
@@ -79,6 +81,20 @@ def insert_recipe(ID_target):
     edited_recipe.update({'last_edit_time':current_time})
     edited_recipe.update({'prep_time':int(edited_recipe.get('prep_time'))})
     edited_recipe.update({'cook_time':int(edited_recipe.get('cook_time'))})
+    
+    loadfailed = 0
+    if(edited_recipe.get('image_link')[0:7] == "http://" or edited_recipe.get('image_link')[0:8] == "https://"):
+        try:
+            image_loadattempt = requests.get(edited_recipe.get('image_link'))
+        except:
+            edited_recipe.update({'image_link': string("{{url_for('static', filename='images/default_thumbnail.jpg')")})
+            loadfailed = 1
+
+        if(loadfailed != 1):
+            try:
+                Image.load(image_loadattempt)
+            except:
+                edited_recipe.update({'image_link': string("{{url_for('static', filename='images/default_thumbnail.jpg')")})
 
     # if the recipe is new, adds a creation time alongside a viewcount to the request form, then inserts it into the database. Also gets the newly added entry's ID for redirection.
     if(ID_target == 'new'):
@@ -106,4 +122,5 @@ def delete_recipe(ID):
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')))
+            port=int(os.environ.get('PORT')),debug=True)
+            
