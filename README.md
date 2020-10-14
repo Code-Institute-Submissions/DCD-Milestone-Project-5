@@ -171,7 +171,7 @@ Additionally IP and PORT keys were set up, to allow for a similarly safe connect
 
 Some minor changes were made to python and javascript code during this process, entirely removing debug messages and personal reminder comments.
 
-There was a slight issue with a missing python module, but manually adding it to the requirements.txt seemingly fixed it.
+It is unfortunate that I was not able to obsfucate the TinyMCE API key, but it's a free account and the only approved domain is my Heroku app.
 
 ## Credits
 
