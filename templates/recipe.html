@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
     <article class="recipe-content">
-        {% if recipe.image_link !='' %}<img class="recipe-image" src="{{recipe.image_link}}" alt="a picture of {{recipe.name}}">{% endif %}
+        {% if recipe.image_link != 'images/default_thumbnail.jpg' %}<div class="recipe-image" style="background:url({{recipe.image_link}})" alt="a picture of {{recipe.name}}"></div>{% endif %}
         <h3 class="recipe-title">{{recipe.name}}</h3>
         <div><b>Makes {{ recipe.servings }}</b></div>
         <div><b>Preparation time:</b> {{ recipe.prep_time }} minutes</div>
@@ -9,7 +9,7 @@
         <div><h4>Ingredients:</h4>
             <div class="ingredients">{{recipe.ingred_list|safe}}</div>
         </div>
-        <div>{% if recipe.tools_needed != '' %}Cooking Tools needed: {{ recipe.tools_needed|safe }} {% endif %}</div>
+        <div>{% if recipe.tools_needed != '' %}<b>Cooking Tools needed:</b> {{ recipe.tools_needed|safe }} {% endif %}</div>
         <div><h4>Method</h4></div>
         <div class="method">{{ recipe.method|safe }}</div>
     </article>

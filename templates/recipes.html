@@ -15,15 +15,15 @@
     <div class="recipe-search-results row">
         {% for recipe in recipes %}
         <a id="recipe-{{loop.index}}" class="recipe-thumbnail-object {% if loop.index > 8 %} hidden-start {% endif %}"  href="{{ url_for('recipe_page', ID=recipe._id) }}">
-            <div class="thumbnail-background" style="background:linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.5)), url('{{recipe.image_link}}')">
+            <div class="thumbnail-background" style="background:linear-gradient(rgba(0,0,0,0.5), rgba(255,255,255,0.1)), {% if recipe.image_link != 'missingImage' %} url({{recipe.image_link}}) {% else %} url({{url_for('static', filename='images/default_thumbnail.jpg')}}) {% endif %}">
                 <h3 class="thumbnail-title title">{{recipe.name}}</h3>
             </div>
-            
         </a>
         {% else %}
             <h4 class="no-results title">Search returned no results.</h4>
         {% endfor %}
-        <nav class="pagination-container col-12 row">
+        {% if pages > 1 %}
+            <nav class="pagination-container col-12 row">
             <ul class="pagination">
             {% for pagecount in range(1,pages+1) %}
             <li id="page-button-{{pagecount}}" class="page-item {% if pagecount == 1 %}active{% endif %}">
@@ -32,6 +32,7 @@
             
             {% endfor %}
             </ul>
+        {% endif %}
         </nav>
     </div>
 

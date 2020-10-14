@@ -93,8 +93,6 @@ page allows users to find a particular recipe by its name, or to filter recipes 
 The delete button allows for the removal of recipes by users.
 Finally, the Recipe page allows users to view the recipe in a clean and clear manner, to make it easier to follow when cooking.
 
-### Changes From Design
-
 ## Technologies Used
 
 - [TinyMCE](https://www.tiny.cloud/)
@@ -132,6 +130,8 @@ Due to the abundance of Jinja used, I was unable to find a compatible verifier.
 #### CSS
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
  - No issues.
+
+
 ## Testing
 
 Testing was primarily manual, as I wasn't entirely sure how to go about automating adding and removing elements of the database to ensure it worked fully, 
@@ -169,15 +169,32 @@ Additionally IP and PORT keys were set up, to allow for a similarly safe connect
 
 Some minor changes were made to python and javascript code during this process, entirely removing debug messages and personal reminder comments.
 
+There was a slight issue with a missing python module, but manually adding it to the requirements.txt seemingly fixed it.
+
 ## Credits
 
 ### Content
 
-- https://stackoverflow.com/questions/29451208/set-default-value-for-select-html-element-in-jinja-template
+- [Basic setup for the select form element with jinja](https://stackoverflow.com/questions/29451208/set-default-value-for-select-html-element-in-jinja-template)
+- https://stackoverflow.com/questions/12020657/how-do-i-open-an-image-from-the-internet-in-pil/12020860
 
 ### Media
 
-- https://pixabay.com/photos/bread-baguettes-food-3803633/
+- [Home Page Baguettes](https://pixabay.com/photos/bread-baguettes-food-3803633/)
+
+#### Recipes:
+
+Links lead to original postings
+
+[Maple Cookies](https://www.allrecipes.com/recipe/9773/maple-cookies/)
+[Dutch Spice Cake](https://www.cdkitchen.com/recipes/recs/29/Dutch_Spice_Cake_Ontbijtkoek18154.shtml)
+[Greek-style Stuffed Peppers with Beef](https://realfood.tesco.com/recipes/greek-style-stuffed-peppers-with-beef.html)
+[Jumbo Sparkling Blueberry Muffins](https://sallysbakingaddiction.com/sparkling-jumbo-blueberry-muffins-2/)
+[Buttermilk Waffles](https://www.allrecipes.com/recipe/233920/tender-and-easy-buttermilk-waffles/)
+[Cinnamon Swirl Quick Bread](https://sallysbakingaddiction.com/cinnamon-swirl-quick-bread/)
+[Russian Chicken Stew](https://www.allrecipes.com/recipe/261231/russian-chicken-stew-with-potatoes-and-vegetables/)
+[Mushroom Risotto](https://www.allrecipes.com/recipe/231713/chef-johns-baked-mushroom-risotto/)
+[Potica](https://www.allrecipes.com/recipe/17236/potica/)
 
 ### Acknowledgements
 

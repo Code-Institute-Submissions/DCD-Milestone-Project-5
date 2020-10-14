@@ -1,6 +1,7 @@
 import os
 import math
-import requests
+import io
+import urllib
 from datetime import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -73,16 +74,21 @@ def insert_recipe(ID_target):
     if(edited_recipe.get('image_link')[0:7] == "http://" or edited_recipe.get('image_link')[0:8] == "https://"):
         # attempts to run a GET request to image link. If it fails, assume it is invalid.
         try:
-            image_loadattempt = requests.get(edited_recipe.get('image_link'))
+            image_load_attempt = urllib.request.urlopen(edited_recipe.get('image_link'))
         except:
-            edited_recipe.update({'image_link': "static/images/default_thumbnail.jpg"})
+            edited_recipe.update({'image_link': "missingImage"})
         else:
             try:
-                Image.load(image_loadattempt) #if this triggers, the link is valid
+                file_attempt = io.BytesIO(image_load_attempt.read())
             except:
-                edited_recipe.update({'image_link': "static/images/default_thumbnail.jpg"})
+                edited_recipe.update({'image_link': "missingImage"})
+            else:
+                try:
+                    Image.open(file_attempt)
+                except:
+                    edited_recipe.update({'image_link': "missingImage"})
     else:
-        edited_recipe.update({'image_link': "static/images/default_thumbnail.jpg"})
+        edited_recipe.update({'image_link': "missingImage"})
     
     # if a new recipe is being created, initialises statistics before inserting
     if(ID_target == 'new'):

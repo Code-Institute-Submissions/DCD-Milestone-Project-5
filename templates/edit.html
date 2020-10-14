@@ -37,13 +37,13 @@
         <div class="form-row">
             <div class="form-group col-sm-4">
                 <label for="preperationTime" class="col-form-label"><h5>Preparation Time: </h5></label>
-                <input id="preparationTime" name="prep_time" class="form-control" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}">
+                <input id="preparationTime" name="prep_time" class="form-control" type="number" required value="{% if target_recipe != 0 %}{{ target_recipe.prep_time }}{% endif %}">
                 <span class="minute-label"> Min.</span>
             </div>
 
             <div class="form-group col-sm-4">
                 <label for="cookingTime" class="col-form-label"><h5>Cooking Time: </h5></label>
-                <input id="cookingTime" name="cook_time" class="form-control" type="number" value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
+                <input id="cookingTime" name="cook_time" class="form-control" type="number" required value="{% if target_recipe != 0 %}{{ target_recipe.cook_time }}{% endif %}">
                 <span class="minute-label"> Min.</span>
             </div>
         </div>

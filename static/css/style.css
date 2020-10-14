@@ -108,11 +108,16 @@ body{
 .thumbnail-background{
     height:inherit;
     width:inherit;
+    background-position:center!important;
+    background-size:cover!important;
+    background-repeat: no-repeat!important;
 }
 
 .thumbnail-title{
-    bottom: -7rem;
-    position: relative;
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    text-overflow: ellipsis;
 }
 
 .footer{
@@ -190,6 +195,10 @@ body{
 
 .search-by-category a{
     color:#f0f8fA;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
 }
 
 #search-controls-toggle{
@@ -215,6 +224,7 @@ body{
     color:#f0f8fa;
     transition-duration:0.2s;
     outline:none;
+    margin-bottom: -1px;
 }
 
 .pagination-container{
@@ -303,8 +313,12 @@ body{
 
 .recipe-image{
     width: 30vw;
+    height: 30vh;
     position: relative;
     float: right;
+    background-position:center!important;
+    background-size:cover!important;
+    background-repeat: no-repeat!important;
 }
 
 .method ol li, .ingredients ul li{
