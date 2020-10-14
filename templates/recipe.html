@@ -9,9 +9,9 @@
         <div><h4>Ingredients:</h4>
             <div class="ingredients">{{recipe.ingred_list|safe}}</div>
         </div>
-        <div>{% if recipe.tools_needed != '' %}Cooking Tools needed: {{ recipe.tools_needed|safe }} {% endif %}</div> <!--If no tools, don't make this appear-->
+        <div>{% if recipe.tools_needed != '' %}Cooking Tools needed: {{ recipe.tools_needed|safe }} {% endif %}</div>
         <div><h4>Method</h4></div>
-        <div class="method">{{ recipe.method|safe }}</div><!--Paragraph tags here not parsing, why?-->
+        <div class="method">{{ recipe.method|safe }}</div>
     </article>
     
     <div class="ed-button-container row">

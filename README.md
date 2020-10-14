@@ -102,24 +102,72 @@ Finally, the Recipe page allows users to view the recipe in a clean and clear ma
     - [JQuery](https://jquery.com/)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [MongoDB](https://www.mongodb.com/cloud/atlas)
+- [Google Fonts](https://fonts.google.com/)
 - [pyMongo](https://pymongo.readthedocs.io/en/stable/)
+- [Requests HTTP library](https://requests.readthedocs.io/en/master/)
 - [FontAwesome](https://fontawesome.com/)
-
-## Testing
+- [Pillow](https://pillow.readthedocs.io/en/stable/)
 
 ### Code Validation
 
+#### Python
+[ExtendsClass](https://extendsclass.com/python-tester.html)
+ - No syntax errors.
+
+#### Javascript
+[BeautifyTools](http://beautifytools.com/javascript-validator.php) 
+ - "tinymce not defined"
+    - just due to how tinymce is intialised, is defined in the tinymce js files.
+ - functions defined but never used
+    - functions are used, but not in the js file.
+[JSHint](https://jshint.com/)
+ - as above, but also "$ undefined"
+    - This one doesn't recognise Jquery.
+
+Otherwise, no issues.
+
+#### HTML
+Due to the abundance of Jinja used, I was unable to find a compatible verifier.
+
+#### CSS
+[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+ - No issues.
+## Testing
+
+Testing was primarily manual, as I wasn't entirely sure how to go about automating adding and removing elements of the database to ensure it worked fully, 
+so I did this by hand by populating the database with a selection of test recipes.
+
 ### User Story Testing
+
+- Users can view a recipe by clicking/tapping the thumbnail to be taken to its page, where the methodology and ingredients are clearly visible.
+
+- Both categorical searches and name-based searches are functional, and presented in a method that does not overload the user with information.
+
+- Recipes can be added by clicking on the "add a recipe" button, taking the user to a creation page that provides a clear and easy to both read and use form to enter the recipe's data.
+    - Users are taken to the recipe's page after clicking submit on their recipe.
+
+- Recipes can be both edited and deleted using the controls on their pages.
+    - Clicking edit will take the user to the recipe creation page, but with the forms already filled with the recipe's data.
+    - The delete button removes the recipe.
 
 ### Interesting Bugs & Known Issues
 
-#### Known Issues
+During the course of development, I came across a couple of somewhat persistant issues that took a great deal of looking and figuring to solve.
 
-There's a minor scaling bug when changing the viewport width, but I can't be certain what's causing it due to the inconsistency with which it has occured during my testing. Going to go out on a limb and say it might be a chrome scaling issue, though I doubt it.
+First amoung these was an issue with fullscreen objects, such as the navbar and footer. The nature of this issue was that despite having 100% width, they would not fill the width of the screen, other similar methods
+did naught to alliviate this issue, until I found that specifically setting the left margin to 0px fixed it.
+
+Next, was an issue that caused strange error messages in python, mainly that values were being set to a variable that had no interaction that I could see with where the aforementioned values were set. I'm still not entirely sure how this one stopped happening.
+
+Lastly, a bug that continues to hound me is one that might be with the way chrome's debug suite handles resizing the responsive mode viewport, as on occasion the page's content will be floated past the edge of the screen. This happens incredibly inconsistently, making testing difficult.
 
 ## Deployment
 
-- Had to set up heroku environment variables to login
+Deployment was thankfully an easy affair, It primarily involved setting up a Heroku app. While most of the work is done for you with Heroku, 
+I did have to set up several environment variables in order to guarentee the safety of the API key and login details for MongoDB. 
+Additionally IP and PORT keys were set up, to allow for a similarly safe connection.
+
+Some minor changes were made to python and javascript code during this process, entirely removing debug messages and personal reminder comments.
 
 ## Credits
 
