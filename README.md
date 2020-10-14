@@ -7,6 +7,8 @@ This is to act as an alternative to clumsily sharing photos of the recipes or li
 
 A live version of this site is available [here](https://dcd-milestone-recipe-site.herokuapp.com/)
 
+![Site Mockups](static/design/dcd_mockups.png)
+
 ## UX
 
 ### Strategy
@@ -198,3 +200,4 @@ Links lead to original postings
 
 ### Acknowledgements
 
+Both my Mentor and the Support Team for being patient with me as I dealt with issues both within and outside this project.
