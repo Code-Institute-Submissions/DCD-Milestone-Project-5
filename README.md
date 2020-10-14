@@ -178,7 +178,7 @@ It is unfortunate that I was not able to obsfucate the TinyMCE API key, but it's
 ### Content
 
 - [Basic setup for the select form element with jinja](https://stackoverflow.com/questions/29451208/set-default-value-for-select-html-element-in-jinja-template)
-- https://stackoverflow.com/questions/12020657/how-do-i-open-an-image-from-the-internet-in-pil/12020860
+- [Loading image programmatically from a website in python]https://stackoverflow.com/questions/12020657/how-do-i-open-an-image-from-the-internet-in-pil/12020860
 
 ### Media
 
